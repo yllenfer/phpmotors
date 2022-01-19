@@ -1,0 +1,479 @@
+/*============================*/
+/*============================*/
+/*============================*/
+/*Phone/Smaller screen CSS*/
+/*============================*/
+/*============================*/
+/*============================*/
+
+body{
+    margin: 0;
+}
+#wrapper{
+    justify-content: center;
+    background-color: #ffffff;
+    width: 100%;
+    font-family: 'Rajdhani', sans-serif;
+    /* background-color: tomato; */
+    
+    
+
+}
+
+
+
+
+.bottom{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin: 2%;
+    padding: 2%;
+    
+}
+
+
+#cta{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    
+}
+
+
+.owntoday{
+    grid-column: 1;
+    grid-row: 4;
+    margin: auto;
+    padding: 5%;
+    
+}
+
+
+
+
+#ad {
+    color: #2a6ba3;
+    margin-left: 5%;
+    font-weight: bolder;
+    
+}
+
+h2{
+    color: #417aac;
+    margin-left: 5%;
+    font-weight: bolder;
+}
+
+h1{
+   margin-left: 10px;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar {
+    background-color: #333;
+    overflow: hidden;
+    width: 100%;
+    
+}
+  
+  
+#navbar a {
+    float: left;
+    color: #f2f2f2;
+    /* text-align: center; */
+    padding: 10px 12px;
+    text-decoration: none;
+    font-size: 15px;
+    border-spacing: 1px;
+}
+
+
+  
+#navbar a:hover {
+    background-color: #ddd;
+    color: black;
+    
+}
+
+#navbar a.active {
+    background-color: #04AA6D;
+    color: white;
+}
+
+#delorean{
+    width: 100%;
+    margin-top: 10px;
+    z-index: 1;
+}
+
+#account{
+  position: absolute;
+  right: 20px;
+  margin-top: -30px;
+  text-decoration: none;
+  color: rgb(95, 95, 95);
+  font-weight: bolder;
+
+}
+
+
+
+.delups {
+    grid-area: header;
+    
+}
+
+.flux {
+    grid-area: upgrade1;
+    justify-self: center;
+}
+
+.flame {
+    grid-area: upgrade2;
+    justify-self: center;
+}
+
+.bumper {
+    grid-area: upgrade3;
+    justify-self: center;
+    
+    
+}
+
+.hubcap {
+    grid-area: upgrade4;
+    justify-self: center;
+}
+
+#upgrades {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "header header header header"
+    "upgrade1 upgrade2 . ."
+    "upgrade3 upgrade4 . .";
+    text-align: center;
+    list-style-type: none;
+}
+
+.comments ul li{
+    list-style-type: circle;
+    padding: 2%;
+    margin-left: 6%;
+}
+
+
+
+#upgrades {
+    margin-top: 55px;
+    grid-column: 1;
+    grid-row: 2;
+
+}
+
+#reviews {
+  grid-column: 1;
+  grid-row: 1;
+
+}
+
+footer{
+    text-align: center;
+    font-family:'Rajdhani', sans-serif ;
+    position: relative;
+}
+
+h3{
+    font-size: 2rem;
+    margin-left: 5%;
+}
+
+@media (min-width: 280px) {
+#navbar a {
+   font-size: 12px;
+    padding-left: 5px;
+  }
+
+  #account{
+      margin-right: 0;
+      margin-left: 20%;
+      
+  }
+
+  #logo{
+      width: 60%;
+      margin-left: 12px;
+  }
+
+}
+
+
+
+
+
+
+/*============================*/
+/*============================*/
+/*============================*/
+/*Fullscreen Media query*/
+/*============================*/
+/*============================*/
+/*============================*/
+@media  (min-width: 50em) {
+    /*============================*/
+    /*============================*/
+    /*============================*/
+    /*Header and basic HTML styling*/
+    /*============================*/
+    /*============================*/
+    /*============================*/
+        header{
+            width: 30%;
+            height: 100px;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* #top-header {
+            margin-top: 50px;
+            border: black solid 10px;
+        } */
+        
+        #account {
+            margin-top: 10px;
+            padding-bottom: 50px;
+            margin-right: 180px;
+            float: right;
+            text-decoration: none;
+            text-decoration: none;
+            color: rgb(97, 96, 96);
+            font-weight: bolder;
+            font-size: 20px;
+            /* font-size:8vw; */
+        
+        
+        }
+    
+        #acc {
+            float: right;
+            margin-bottom: 100px;
+            width: 50%;
+            margin-left: -150px;
+            margin-top: 100px;
+        }
+    
+        
+        body {
+            background-image: url('starter-assets/phpmotors/images/site/checkerboard.jpg');
+            margin: 3%;
+        }
+        
+        #wrapper{
+            margin-left: 150px;
+            justify-content: center;
+            background-color: #ffffff;
+            border: 5px solid #4c96d7;
+            width: 80%;
+            font-family: 'Rajdhani', sans-serif;
+            border-radius: 3%;
+    
+    
+        }
+        
+        #ad {
+            color: #417099;
+            
+        }
+        
+        h2{
+            color: #4c96d7;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #navbar {
+            background-color: #333;
+            overflow: hidden;
+            width: 100%;
+            
+        }
+          
+          
+        #navbar a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 10px 12px;
+            text-decoration: none;
+            /* font-size:8vw; */
+            font-size: 12px;
+        }
+          
+          
+        #navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        
+        #navbar a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+    /*============================*/
+    /*============================*/
+    /*============================*/
+    /*Call to action*/
+    /*============================*/
+    /*============================*/
+    /*============================*/
+        #owntoday {
+            grid-area: header;
+            margin-top: 30px;
+            margin-left: 20px;
+            z-index: 2;
+        }
+    
+        #cta h2 {
+            grid-area: title;
+            z-index: 1;
+            margin-bottom: -20px;
+            margin-left: 50px;
+        }
+    
+        #cta p {
+            grid-area: ad;
+            z-index: 1;
+            margin-left: 50px;
+        }
+    
+        #delorean {
+            
+            text-align: center;
+            margin-left: 40%;
+            width: 150%;
+            margin-top: -200px;
+            z-index: 1;
+    
+        }
+    
+        #cta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-template-areas:
+            "title title title title"
+            "ad ad ad ad" 
+            "header header header header"
+            "image image image image";
+        }
+
+
+        /* #cta{
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            
+        } */
+        
+    /*============================*/
+    /*============================*/
+    /*============================*/
+    /*Upgrades and Reviews*/
+    /*============================*/
+    /*============================*/
+    /*============================*/
+        .bottom {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+        }
+    
+        .delups {
+            grid-area: header;
+            
+        }
+    
+        .flux {
+            grid-area: upgrade1;
+            justify-self: center;
+        }
+    
+        .flame {
+            grid-area: upgrade2;
+            justify-self: center;
+        }
+    
+        .bumper {
+            grid-area: upgrade3;
+            justify-self: center;
+            
+            
+        }
+    
+        .hubcap {
+            grid-area: upgrade4;
+            justify-self: center;
+        }
+    
+        #upgrades {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            grid-template-areas: 
+            "header header header header"
+            "upgrade1 upgrade2 . ."
+            "upgrade3 upgrade4 . .";
+            text-align: center;
+            list-style-type: none;
+        }
+    
+        #image-frame {
+            background-color: #4c96d7;
+            width: 150px;
+            height: 100px;
+            text-align: center;
+        }
+    
+        #reviews {
+            grid-column: 2;
+            grid-row: 2;
+            justify-self: center;
+            margin-top: 60px;
+            
+        }
+    
+        .comments {
+            margin-top: 55px;
+          
+          
+        }
+
+    
+    /*============================*/
+    /*============================*/
+    /*============================*/
+    /*Footer*/
+    /*============================*/
+    /*============================*/
+    /*============================*/
+        footer{
+            text-align: center;
+            margin-top: -14%;
+            
+            
+            
+            
+        }
+
+  
+    }
+    
