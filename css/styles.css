@@ -281,7 +281,7 @@ h3{
     
         
         body {
-            background-image: url('starter-assets/phpmotors/images/site/checkerboard.jpg');
+            background-image: url('../images/site/checkerboard.jpg');
             margin: 3%;
         }
         

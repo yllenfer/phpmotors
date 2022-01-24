@@ -11,8 +11,8 @@
                     Superman doors<br>
                     Fuzzy dice!
                 </p>
-                <img src="starter-assets/phpmotors/images/site/own_today.png" alt="Own Today" id="owntoday" class="owntoday">
-                <img src="starter-assets/phpmotors/images/delorean.jpg" alt="Delorean" id="delorean" class="delorean">
+                <img src="../images/site/own_today.png" alt="Own Today" id="owntoday" class="owntoday">
+                <img src="../images/delorean.jpg" alt="Delorean" id="delorean" class="delorean">
                 <!-- <img src="/phpmotors/images/site/own_today.png" alt="Own Today" id="owntoday_small"> -->
             </div>
         </main>
@@ -23,7 +23,7 @@
                     <div class="flux">
                         <ul>
                         <div id="image-frame">
-                            <img src="starter-assets/phpmotors/images/upgrades/flux-cap.png" alt="Flux Capacitor">
+                            <img src="../images/upgrades/flux-cap.png" alt="Flux Capacitor">
                         </div>
                         <li><a href="">Flux Capacitor</a></li>
                         </ul>
@@ -31,7 +31,7 @@
                     <div class="flame">
                         <ul>
                         <div id="image-frame">
-                            <img src="starter-assets/phpmotors/images/upgrades/flame.jpg" alt="Flames">
+                            <img src="../images/upgrades/flame.jpg" alt="Flames">
                         </div>
                        <li><a href="">Flame Decals</a></li> 
                        </ul>                  
@@ -39,7 +39,7 @@
                     <div class="bumper">
                         <ul>
                         <div id="image-frame">
-                            <img src="starter-assets/phpmotors/images/upgrades/bumper_sticker.jpg" alt="Bumper">
+                            <img src="../images/upgrades/bumper_sticker.jpg" alt="Bumper">
                         </div>
                         <li><a href="">Bumper Stickers</a></li>
                         </ul>
@@ -47,7 +47,7 @@
                     <div class="hubcap">
                         <ul>
                         <div id="image-frame">
-                            <img src="starter-assets/phpmotors/images/upgrades/hub-cap.jpg" alt="Hub Capacitator">
+                            <img src="../images/upgrades/hub-cap.jpg" alt="Hub Capacitator">
                         </div>    
                         <li><a href="">Hub Caps</a></li> 
                         </ul>
