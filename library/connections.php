@@ -16,7 +16,7 @@ try {
     $link = new PDO($dsn, $username, $password, $options);
      return $link;
    } catch(PDOException $e) {
-     header('Location: /phpmotors/500.php');
+     header('Location: /phpmotors/view/500.php');
      exit;
      //TODO: work on the 500 page
    }
