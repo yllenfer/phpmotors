@@ -4,7 +4,7 @@
 *Proxy connector for phpmotors database
 */
 function phpmotorsConnect(){
-$server = 'mysql123';
+$server = 'mysql';
 $dbname = 'phpmotors';
 $username = 'iClient';
 $password = 'removed-old-local-password';
@@ -22,6 +22,5 @@ try {
    }
 }
 
-phpmotorsConnect()
 
 ?>

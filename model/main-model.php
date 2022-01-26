@@ -1,6 +1,4 @@
-<?php 
-
-//"Main PHP Motors Model"
+<?php
 
 function getClassifications(){
     // Create a connection object from the phpmotors connection function
@@ -21,11 +19,4 @@ function getClassifications(){
     return $classifications;
    }
 
-   // Get the array of classifications
-   $classifications = getClassifications();
-
-   var_dump($classifications);
-   exit;
-
-
-?>
+   ?>
