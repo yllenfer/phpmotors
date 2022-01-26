@@ -11,6 +11,7 @@ WHERE clientFirstname = "Tony";
 --query #3
 UPDATE inventory 
 SET invDescription = REPLACE(invDescription, "small interiors", "spacious interior");
+WHERE invDescription = ""
 
 --query #4
 SELECT carclassification.classificationName, inventory.invMake
@@ -26,7 +27,7 @@ WHERE invMake = "Jeep" AND invModel = "Wrangler";
 
 --query #6
 UPDATE inventory
-SET invThumbnail =  REPLACE(invThumbnail, "\images\", "\phpmotors");
+SET invThumbnail =  CONCAT("\images\" +  "\phpmotors");
 
 
 
