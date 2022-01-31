@@ -18,7 +18,6 @@ try {
    } catch(PDOException $e) {
      header('Location: /phpmotors/view/500.php');
      exit;
-     //TODO: work on the 500 page
    }
 }
 
