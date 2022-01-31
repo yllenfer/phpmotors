@@ -1,5 +1,9 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/header.php'; ?>
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/nav.php'; ?>      
+<nav>
+<?php //include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/nav.php'; 
+// TODO: Need to use the nav list, how should I implement it?
+echo $navList?>   
+</nav>    
        
    
         <main>
