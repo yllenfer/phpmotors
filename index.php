@@ -1,5 +1,6 @@
 <?php 
 
+
 //"Main PHP Motors Model"
 
 // Get the database connection file
@@ -22,15 +23,6 @@ require_once 'model/main-model.php';
  }
  $navList .= '</ul>';
 
-// TODO: I need to understand how to display the nav for the template 
-
-// $navList2 = '<ul>';
-// $navList2 .= "<li><a href='/phpmotors/view/template.php' title='View the PHP Motors home page'>Home</a></li>";
-// foreach ($classifications as $classification) {
-//  $navLis2t .= "<li><a href='/phpmotors/view/template.php?action=".urlencode($classification['classificationName'])."' title='View our $classification[classificationName] product line'>$classification[classificationName]</a></li>";
- 
-// }
-// $navList2 .= '</ul>';
 
 
 
@@ -40,8 +32,8 @@ $action = filter_input(INPUT_POST, 'action');
  }
 
  switch ($action){
-  case 'view/template.php':
-   
+  case 'template';
+  include 'view/template.php';
    break;
   
   default:
