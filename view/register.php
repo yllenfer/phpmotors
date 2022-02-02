@@ -6,21 +6,17 @@
 echo $navList?> 
 </nav>
 
-<div>
 
 <form>
-  <label for="fname">First Name </label><br>
-  <input name="clientFirstname" id="clientFirstname" type="text" value="Firstname"><br>
-  <label for="fname">First Last </label><br>
-  <input name="clientFirstname" id="clientLastname" type="text" value="Lastname"><br>
-  <label for="fname">Email</label><br>
-  <input name="clientEmail" id="clientEmail" type="text" value="Email"><br>
-  <label for="password">Password:</label><br>
-  <input name="clientPassword" id="clientPassword" type="text" value="Password"><br>
-  <button type="button">Register</button>
-
-</div>
-
+  <label for="clientFirstname">First Name </label><br>
+  <input name="clientFirstname" id="clientFirstname" type="text" required="required" placeholder="First name"><br>
+  <label for="clientLastname">Last Name</label><br>
+  <input name="clientLastname" id="clientLastname" type="text" placeholder="Last name" required="required"><br>
+  <label for="clientEmail">Email</label><br>
+  <input name="clientEmail" id="clientEmail" type="text" placeholder="Email" required="required"><br>
+  <label for="clientPassword" >Password:</label><br>
+  <input name="clientPassword" id="clientPassword" type="text" placeholder="Password" required="required"><br>
+  <button type="submit">Register</button>
 </form>
 
 

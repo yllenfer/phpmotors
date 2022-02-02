@@ -7,17 +7,16 @@
 echo $navList?> 
 </nav>
 
-<div>
 
 
 <form class="login">
-  <label for="fname">Username:</label><br>
-  <input name="clientFirstname" id="clientFirstname" type="text" value="Username"><br>
-  <label for="password">Password:</label><br>
-  <input name="clientPassword" id="clientPassword" type="text" value="Password"><br>
-  <button type="button">Login</button>
-<div>No account? <a href="/phpmotors/view/register.php">Sign up</a> </div>
-</div>
+  <label for="clientFirstname">Username:</label><br>
+  <input name="clientFirstname" id="clientFirstname" type="text" placeholder="Username" required="required"><br>
+  <label for="clientPassword">Password:</label><br>
+  <input name="clientPassword" id="clientPassword" type="text" placeholder="Password" required="required"><br>
+  <button type="submit">Login</button>
+<div>No account? <a href="/phpmotors/accounts/index.php?action=register">Sign up</a> </div>
+
 </form>
 
 

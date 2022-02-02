@@ -18,7 +18,7 @@
             
                 <img src="/phpmotors/images/site/logo.png" alt="PHP Logo" id="logo">
                 <div id="acc">
-                    <a id="account" href="/phpmotors/view/template.php" title="Login or Register with PHP Motors">My Account</a>
+                    <a id="account" href="/phpmotors/accounts/index.php?action=login" title="Login or Register with PHP Motors">My Account</a>
                 </div>
             
         </header>
