@@ -7,7 +7,11 @@
 echo $navList?> 
 </nav>
 
-
+<?php
+if (isset($message)) {
+ echo $message;
+}
+?>
 
 <form class="login">
   <label for="clientFirstname">Username:</label><br>
