@@ -40,6 +40,7 @@ $action = filter_input(INPUT_POST, 'action');
   default:
    include 'view/home.php';
  }
+ 
 
  
 

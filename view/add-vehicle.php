@@ -10,7 +10,9 @@ echo $navList?>
 
 <h1>Add vehicle</h1>
 <!-- // TODO: Need to have a query that retrieves the current list of cars -->
-<label for="cars">Choose a car:</label>
+  <form method="post" action="/phpmotors/accounts/index.php">
+  <label for="cars">Choose a car:</label>
+  <br>
   <select id="cars" name="cars">
     <option value="volvo">Volvo</option>
     <option value="saab">Saab</option>
@@ -18,31 +20,34 @@ echo $navList?>
     <option value="audi">Audi</option>
   </select>
   <br>
-
   <label for="make">Make</label>
+  <br>
   <input type="text" id="invMake">
-
 <br>
   <label for="model">Model</label>
+  <br>
   <input type="text" id="invModel">
-  
 <br>
   <label for="w3review">Review of W3Schools:</label>
 <br>
 <textarea id="w3review" name="w3review" rows="4" cols="50">
-
 </textarea>
-
 <br>
   <label for="imagepath">Image path</label>
+  <br>
   <input type="text" id="invImage">
-  
   <br>
   <label for="thumnnailpath">Thumbnail path</label>
+  <br>
   <input type="text" id="invThumbnail">
-
   <br>
   <label for="price">Price</label>
+  <br>
   <input type="text" id="invPrice">
+  <br>
+  <button type="submit">Add car</button>
+ <br>
+  <input type="hidden" name="action" value="register">
+</form>
   
-<?php //include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/footer.php'; ?>  
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/footer.php'; ?>  

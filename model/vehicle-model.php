@@ -9,14 +9,15 @@ function regCar($classificationName){
      // Create a connection object using the phpmotors connection function
  $db = phpmotorsConnect();
  // The SQL statement
- $sql = 'INSERT INTO carClassification (classificationName)
+ $sql = 'INSERT INTO carclassification (classificationName)
      VALUES (:classificationName)';
  // Create the prepared statement using the phpmotors connection
  $stmt = $db->prepare($sql);
  // The next four lines replace the placeholders in the SQL
  // statement with the actual values in the variables
  // and tells the database the type of data it is
- $stmt->bindValue(':classificationName', $classificationName, PDO::PARAM_STR);
+ //TODO Why is not working?
+ $stmt->bindValue($classificationName, ':classificationName',  PDO::PARAM_STR);
 
  // Insert the data
  $stmt->execute();
