@@ -20,7 +20,7 @@ require_once '../model/vehicle-model.php';
   }
   $navList .= '</ul></div></nav>';
 
-  $regOutcome = regCar($classificationName);
+
 
 
 $action = filter_input(INPUT_GET, 'action');
@@ -29,22 +29,26 @@ $action = filter_input(INPUT_GET, 'action');
  }
 
  switch ($action) {
-    case 'add-vehicle';
-    include '../view/add-vehicle.php';
-     break;
+    case 'add-vehicle':
+        include '../view/add-vehicle.php';
+       break;
+       
+       default:
+        include '../view/add-classification.php';
+       break;
 
-     case 'add-classification';
-    include '../view/add-classification.php';
-     break;
-   
-    case 'vehicle-management';
-    include '../view/vehicle-management.php';
-     break;
+       case 'add-classification':
+         // Filter and store the data
+         include '../view/add-classification.php';
+           $classificationName = filter_input(INPUT_POST, 'classificationName');
+          
+         
+         // Send the data to the model
+         $regOutcome = regCar($classificationName);
+         
   
-  default:
-   include '../view/home.php';
-  break;
-  
+         break;
+
   
  }
  
