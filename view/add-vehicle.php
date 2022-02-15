@@ -8,17 +8,30 @@ echo $navList?>
 
 
 
+
 <h1>Add vehicle</h1>
 <!-- // TODO: Need to have a query that retrieves the current list of cars -->
-  <form method="post" action="/phpmotors/accounts/index.php">
+
+<?php
+if (isset($message)) {
+ echo $message;
+}
+?>
+  <form method="post" action="/phpmotors/vehicles/index.php">
   <label for="cars">Choose a car:</label>
   <br>
-  <select id="cars" name="cars">
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="fiat" selected>Fiat</option>
-    <option value="audi">Audi</option>
-  </select>
+  <!-- <select id="cars" name="cars">
+    <option value="suv">SUV</option>
+    <option value="sports">Sports</option>
+    <option value="trucks" selected>Trucks</option>
+    <option value="used">Used</option>
+
+  </select> -->
+
+  <?php 
+
+  echo $classList
+  ?>
   <br>
   <label for="make">Make</label>
   <br>
@@ -28,9 +41,9 @@ echo $navList?>
   <br>
   <input type="text" id="invModel">
 <br>
-  <label for="w3review">Review of W3Schools:</label>
+  <label for="w3review">Reviews</label>
 <br>
-<textarea id="w3review" name="w3review" rows="4" cols="50">
+<textarea id="invDescription" name="w3review" rows="4" cols="50">
 </textarea>
 <br>
   <label for="imagepath">Image path</label>
@@ -45,9 +58,16 @@ echo $navList?>
   <br>
   <input type="text" id="invPrice">
   <br>
-  <button type="submit">Add car</button>
+  <label for="invStock">In Stock</label>
+  <br>
+  <input type="text" id="invStock">
+  <br>
+  <label for="invColor">Color</label>
+  <br>
+  <input type="text" id="invColor">
+ <br> <input type="hidden" name="action" value="addVehicle">
  <br>
-  <input type="hidden" name="action" value="register">
+  <button type="submit">Add car</button>
 </form>
   
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/footer.php'; ?>  

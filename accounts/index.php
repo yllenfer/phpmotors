@@ -31,10 +31,8 @@ $action = filter_input(INPUT_GET, 'action');
   case 'login':
    include '../view/login.php';
   break;
-  
-  default:
-   include '../view/home.php';
-  break;
+
+ 
   // TODO: Need to figure out which case statement I should keep
   case 'register':
     // Filter and store the data
@@ -63,7 +61,12 @@ $action = filter_input(INPUT_GET, 'action');
       include '../view/register.php';
       exit;
     }
-    break;
+
+
+
+    default:
+    include '../view/home.php';
+   break;
  }
  
 

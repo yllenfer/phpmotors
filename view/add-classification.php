@@ -7,10 +7,18 @@
 echo $navList?> 
 </nav>
 
-<h1>Add car classification</h1>
 
-<form method="post" action="/phpmotors/vehicles/index.php">
+
+<h1>Add car classification</h1>
+<?php
+if (isset($message)) {
+ echo $message;
+}
+?>
+
+<form method="post" action="/phpmotors/vehicles/index.php" >
   <input name="classificationName" id="classificationName" type="text"  placeholder="Add car classification"><br>
+  <br> <input type="hidden" name="action" value="classification">
   <button type="submit">Add car</button>
 </form>
  
