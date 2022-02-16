@@ -528,6 +528,10 @@ form {
 #loginhello{
     background-color: #417aac;
 }
+
+form label{
+    margin: 4%;
+}
  
   
     }

@@ -46,27 +46,34 @@ $action = filter_input(INPUT_GET, 'action');
     //     include '../view/add-vehicle.php';
     //    break;
 
-    case "addVehicle":
-        $invId = filter_input(INPUT_POST, 'invId');
-        $invMake = filter_input(INPUT_POST, 'invMake');
-        $invModel = filter_input(INPUT_POST, 'invModel ');
-        $invDescription = filter_input(INPUT_POST, 'invDescription');
-        $invImage = filter_input(INPUT_POST, 'invImage');
-        $invThumbnail = filter_input(INPUT_POST, 'invThumbnail');
-        $invPrice= filter_input(INPUT_POST, 'invPrice');
-        $invStock = filter_input(INPUT_POST, 'invStock');
-        $invColor = filter_input(INPUT_POST, 'invColor');
+  case "addVehicle":
+      $invMake = filter_input(INPUT_POST, 'invMake');
+      $invModel = filter_input(INPUT_POST, 'invModel ');
+      $invDescription = filter_input(INPUT_POST, 'invDescription');
+      $invImage = filter_input(INPUT_POST, 'invImage');
+      $invThumbnail = filter_input(INPUT_POST, 'invThumbnail');
+      $invPrice= filter_input(INPUT_POST, 'invPrice');
+      $invStock = filter_input(INPUT_POST, 'invStock');
+      $invColor = filter_input(INPUT_POST, 'invColor');
+        // echo "$invColor";
+        // echo "$invMake";
+        echo "$invModel";
+        // echo "$invDescription";
+        // echo "$invThumbnail";
+        // echo "$invImage";
+        // echo "$invPrice";
+        // echo "$invStock";
+        exit;
 
     
-        if(empty($invMake) || empty($invModel) || empty($invDescription) || empty($invImage) ||  empty($invThumbnail) ||  empty($invPrice) ||  empty($invStock) ||  empty($invColor)){
+        if(empty($invMake) || empty($invModel)  || empty($invDescription) || empty($invImage) ||  empty($invThumbnail) ||  empty($invPrice) ||  empty($invStock) ||  empty($invColor)){
             $message = "<p>Please provide information for all empty form fields.</p>";
             include '../view/add-vehicle.php';
             exit;
 
         }
-
-        $outcome = regVehicle($invId, $invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invColor);
-        if($outcome=== 1){
+        $regOutcome = regVehicle($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invColor);
+        if($regOutcome ===1){
             $message = "<p>Your $invMake $invModel has been added successfully</p>";
             include '../view/add-vehicle.php';
             exit;

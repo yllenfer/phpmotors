@@ -35,36 +35,35 @@ if (isset($message)) {
   <br>
   <label for="make">Make</label>
   <br>
-  <input type="text" id="invMake">
+  <input type="text" id="invMake" name="invMake">
 <br>
-  <label for="model">Model</label>
+  <label for="invModel">Model</label>
   <br>
-  <input type="text" id="invModel">
+  <input type="text" id="invModel" name="invModel">
 <br>
-  <label for="w3review">Reviews</label>
+  <label for="invDescription">Reviews</label>
 <br>
-<textarea id="invDescription" name="w3review" rows="4" cols="50">
-</textarea>
+<textarea id="invDescription" name="invDescription" rows="4" cols="50"> </textarea>
 <br>
   <label for="imagepath">Image path</label>
   <br>
-  <input type="text" id="invImage">
+  <input type="text" id="invImage" name="invImage" type="text">
   <br>
   <label for="thumnnailpath">Thumbnail path</label>
   <br>
-  <input type="text" id="invThumbnail">
+  <input type="text" id="invThumbnail" name="invThumbnail" type="text">
   <br>
   <label for="price">Price</label>
   <br>
-  <input type="text" id="invPrice">
+  <input type="text" id="invPrice" name="invPrice" type="text">
   <br>
   <label for="invStock">In Stock</label>
   <br>
-  <input type="text" id="invStock">
+  <input type="text" id="invStock" name="invStock" type="text">
   <br>
   <label for="invColor">Color</label>
   <br>
-  <input type="text" id="invColor">
+  <input type="text" id="invColor" name="invColor" type="text">
  <br> <input type="hidden" name="action" value="addVehicle">
  <br>
   <button type="submit">Add car</button>
