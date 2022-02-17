@@ -489,7 +489,7 @@ h3{
     /*============================*/
         footer{
             text-align: center;
-            margin-top: -14%;
+            margin-top: 10%;
             
             
             
@@ -533,6 +533,10 @@ form label{
     margin: 4%;
 }
  
+
+a .carclass{
+    margin-top: 20%;
+}
   
     }
     
