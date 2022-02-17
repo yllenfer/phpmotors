@@ -17,16 +17,11 @@ if (isset($message)) {
  echo $message;
 }
 ?>
+
+
   <form method="post" action="/phpmotors/vehicles/index.php">
   <label for="cars">Choose a car:</label>
   <br>
-  <!-- <select id="cars" name="cars">
-    <option value="suv">SUV</option>
-    <option value="sports">Sports</option>
-    <option value="trucks" selected>Trucks</option>
-    <option value="used">Used</option>
-
-  </select> -->
 
   <?php 
 
@@ -43,7 +38,7 @@ if (isset($message)) {
 <br>
   <label for="invDescription">Reviews</label>
 <br>
-<textarea id="invDescription" name="invDescription" rows="4" cols="50"> </textarea>
+<textarea id="invDescription" name="invDescription" rows="4" cols="30"> </textarea>
 <br>
   <label for="imagepath">Image path</label>
   <br>
