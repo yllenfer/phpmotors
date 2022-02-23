@@ -20,6 +20,11 @@ body{
 
 }
 
+.error-message{
+    color: red;
+    visibility: visible;
+}
+
 form button{
     background-color: #417aac;
     border: none;
