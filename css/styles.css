@@ -16,8 +16,17 @@ body{
     font-family: 'Rajdhani', sans-serif;
     /* background-color: tomato; */
     
-    
 
+}
+
+h6{
+    color: red;
+    margin-top: -5%;
+    font-size: 12px;
+    position: absolute;
+    /* background-color: #417099; */
+    margin-left: 2%;
+    
 }
 
 .error-message{

@@ -1,9 +1,26 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/header.php'; ?>
 
 
+<?php
+  $classList = '<select class="dropdown-menu" id="classification-list" name="classificationId">';
+  $classList .= '<option selected disabled>Select a Classification</option>';
+  foreach ($classifications as $classification) {
+    $classList .= "<option value='$classification[classificationId]'";
+    if(isset($classificationId)){
+      if($classification['classificationId'] === $classificationId){
+        $classList .= ' selected ';
+      }
+    } 
+
+    $classList .= ">$classification[classificationName]</option>";
+  }
+  $classList .= '</select>';
+
+?>
+
 <nav>
 <?php 
-echo $navList?> 
+ echo $navList?> 
 </nav>
 
 
@@ -18,7 +35,7 @@ if (isset($message)) {
 
 
   <form method="post" action="/phpmotors/vehicles/index.php">
-  <label for="cars">Choose a car:</label>
+  <label>Choose a car:</label>
   <br>
 
   <?php 
@@ -26,7 +43,7 @@ if (isset($message)) {
   echo $classList
   ?>
   <br>
-  <label for="make">Make</label>
+  <label for="invMake">Make</label>
   <br>
   <input type="text" id="invMake" name="invMake" required="required" <?php if(isset($invMake)){echo "value='$invMake'";}  ?>>
  <br>
@@ -38,25 +55,25 @@ if (isset($message)) {
  <br>
 <textarea id="invDescription" name="invDescription" rows="2" cols="20" required oninvalid="this.setCustomValidity('Please enter a review')" oninput="this.setCustomValidity('')" ><?php if(isset($invDescription)){echo $invDescription;}  ?></textarea>
  <br>
-  <label for="imagepath">Image path</label>
+  <label for="invImage">Image path</label>
   <br>
-  <input type="text" id="invImage" name="invImage" type="text"  required="required" <?php if(isset($invImage)){echo "value='$invImage'";}  ?>>
+  <input type="text" id="invImage" name="invImage" required="required" <?php if(isset($invImage)){echo "value='$invImage'";}  ?>>
   <br>
-  <label for="thumnnailpath">Thumbnail path</label>
+  <label for="invThumbnail">Thumbnail path</label>
   <br>
-  <input type="text" id="invThumbnail" name="invThumbnail" type="text"  required="required" <?php if(isset($invThumbnail)){echo "value='$invThumbnail'";}  ?>>
+  <input type="text" id="invThumbnail" name="invThumbnail"  required="required" <?php if(isset($invThumbnail)){echo "value='$invThumbnail'";}  ?>>
   <br>
-  <label for="price">Price</label>
+  <label for="invPrice">Price</label>
   <br>
-  <input type="text" id="invPrice" name="invPrice" type="text"  required="required" <?php if(isset($invPrice)){echo "value='$invPrice'";}  ?>>
+  <input type="text" id="invPrice" name="invPrice"  required="required" <?php if(isset($invPrice)){echo "value='$invPrice'";}  ?>>
   <br>
   <label for="invStock">In Stock</label>
   <br>
-  <input type="text" id="invStock" name="invStock" type="text"  required="required" <?php if(isset($invStock)){echo "value='$invStock'";}  ?>>
+  <input type="text" id="invStock" name="invStock"   required="required" <?php if(isset($invStock)){echo "value='$invStock'";}  ?>>
   <br>
   <label for="invColor">Color</label>
   <br>
-  <input type="text" id="invColor" name="invColor" type="text"  required="required" <?php if(isset($invColor)){echo "value='$invColor'";}  ?>>
+  <input type="text" id="invColor" name="invColor" required="required" <?php if(isset($invColor)){echo "value='$invColor'";}  ?>>
  <br> <input type="hidden" name="action" value="addVehicle">
  <br>
   <button type="submit">Add car</button>

@@ -16,13 +16,7 @@ require_once '../library/functions.php';
   // Get the array of classifications
 	$classifications = getClassifications();
   // Build a navigation bar using the $classifications array
-  $navList = '<nav><div id="navbar"><ul>';
-  $navList .= "<li><a href='/phpmotors/index.php' title='View the PHP Motors home page'>Home</a></li>";
-  foreach ($classifications as $classification) {
-   $navList .= "<li><a href='/phpmotors/index.php?action=".urlencode($classification['classificationName'])."' title='View our $classification[classificationName] product line'>$classification[classificationName]</a></li>";
-   
-  }
-  $navList .= '</ul></div></nav>';
+  $navList = navigationList($classifications);
 
 
 
@@ -37,22 +31,20 @@ $action = filter_input(INPUT_GET, 'action');
     $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
     $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
 //TODO: What happens once I login?
-    if(empty($clientEmail) || empty($checkPassword)){
+    if(empty($clientEmail) || empty($clientPassword)){
       $message = '<p>Please provide information for all empty form fields.</p>';
       include '../view/login.php';
       exit;
     }
 
-
-  
   break;
 
  
   case 'register':
     // Filter and store the data
-      $clientFirstname = filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_STRING);
-      $clientLastname = filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_STRING);
-      $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
+      $clientFirstname = trim(filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_STRING));
+      $clientLastname = trim(filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_STRING));
+      $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
       $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
       $clientEmail = checkEmail($clientEmail);
       $checkPassword = checkPassword($clientPassword);

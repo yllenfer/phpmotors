@@ -14,7 +14,7 @@ if (isset($message)) {
 ?>
 
 <form class="login">
-  <label for="clientFirstname">User Email:</label><br>
+  <label for="clientEmail">User Email:</label><br>
   <input name="clientEmail" id="clientEmail" type="email" placeholder="Email" required="required" <?php if(isset($clientEmail)){echo "value='$clientEmail'";}  ?>><br>
   <label for="clientPassword">Password:</label><br>
   <input name="clientPassword" id="clientPassword" type="password" placeholder="Password" required="required" pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" oninvalid="this.setCustomValidity('Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character')" oninput="this.setCustomValidity('')"> <br>

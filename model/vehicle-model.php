@@ -40,7 +40,6 @@ $stmt = $db->prepare($sql);
 // The next four lines replace the placeholders in the SQL
 // statement with the actual values in the variables
 // and tells the database the type of data it is
-//TODO Why is not working?
 $stmt->bindValue(':classificationId', $classificationId, PDO::PARAM_STR);
 $stmt->bindValue(':invMake', $invMake, PDO::PARAM_STR);
 $stmt->bindValue(':invModel', $invModel, PDO::PARAM_STR);

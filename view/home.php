@@ -3,7 +3,7 @@
 
 <nav>
 <?php 
-echo$navList; ?> 
+ echo$navList; ?> 
 
 </nav>
 
