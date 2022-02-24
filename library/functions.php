@@ -14,4 +14,5 @@ function checkPassword($clientPassword){
     return preg_match($pattern, $clientPassword);
    }
 
+//TODO: Didn't get the nav part
 ?>

@@ -2,7 +2,7 @@
 
 
 <nav>
-<?php //include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/nav.php'; 
+<?php 
 echo $navList?> 
 </nav>
 
@@ -10,8 +10,6 @@ echo $navList?>
 
 
 <h1>Add vehicle</h1>
-<!-- // TODO: Need to have a query that retrieves the current list of cars -->
-
 <?php
 if (isset($message)) {
  echo $message;
@@ -30,35 +28,35 @@ if (isset($message)) {
   <br>
   <label for="make">Make</label>
   <br>
-  <input type="text" id="invMake" name="invMake">
-<br>
+  <input type="text" id="invMake" name="invMake" required="required" <?php if(isset($invMake)){echo "value='$invMake'";}  ?>>
+ <br>
   <label for="invModel">Model</label>
   <br>
-  <input type="text" id="invModel" name="invModel">
-<br>
+  <input type="text" id="invModel" name="invModel"  required="required" <?php if(isset($invModel)){echo "value='$invModel'";}  ?>>
+ <br>
   <label for="invDescription">Reviews</label>
-<br>
-<textarea id="invDescription" name="invDescription" rows="4" cols="30"> </textarea>
-<br>
+ <br>
+<textarea id="invDescription" name="invDescription" rows="2" cols="20" required oninvalid="this.setCustomValidity('Please enter a review')" oninput="this.setCustomValidity('')" ><?php if(isset($invDescription)){echo $invDescription;}  ?></textarea>
+ <br>
   <label for="imagepath">Image path</label>
   <br>
-  <input type="text" id="invImage" name="invImage" type="text">
+  <input type="text" id="invImage" name="invImage" type="text"  required="required" <?php if(isset($invImage)){echo "value='$invImage'";}  ?>>
   <br>
   <label for="thumnnailpath">Thumbnail path</label>
   <br>
-  <input type="text" id="invThumbnail" name="invThumbnail" type="text">
+  <input type="text" id="invThumbnail" name="invThumbnail" type="text"  required="required" <?php if(isset($invThumbnail)){echo "value='$invThumbnail'";}  ?>>
   <br>
   <label for="price">Price</label>
   <br>
-  <input type="text" id="invPrice" name="invPrice" type="text">
+  <input type="text" id="invPrice" name="invPrice" type="text"  required="required" <?php if(isset($invPrice)){echo "value='$invPrice'";}  ?>>
   <br>
   <label for="invStock">In Stock</label>
   <br>
-  <input type="text" id="invStock" name="invStock" type="text">
+  <input type="text" id="invStock" name="invStock" type="text"  required="required" <?php if(isset($invStock)){echo "value='$invStock'";}  ?>>
   <br>
   <label for="invColor">Color</label>
   <br>
-  <input type="text" id="invColor" name="invColor" type="text">
+  <input type="text" id="invColor" name="invColor" type="text"  required="required" <?php if(isset($invColor)){echo "value='$invColor'";}  ?>>
  <br> <input type="hidden" name="action" value="addVehicle">
  <br>
   <button type="submit">Add car</button>

@@ -36,7 +36,7 @@ $action = filter_input(INPUT_GET, 'action');
     //Filter and store login data
     $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
     $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
-
+//TODO: What happens once I login?
     if(empty($clientEmail) || empty($checkPassword)){
       $message = '<p>Please provide information for all empty form fields.</p>';
       include '../view/login.php';
