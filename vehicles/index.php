@@ -13,23 +13,10 @@ require_once '../library/functions.php';
 
   // Get the array of classifications
 	$classifications = getClassifications();
-  // Build a navigation bar using the $classifications array
-  $navList = '<nav><div id="navbar"><ul>';
-  $navList .= "<li><a href='/phpmotors/index.php' title='View the PHP Motors home page'>Home</a></li>";
-  foreach ($classifications as $classification) {
-   $navList .= "<li><a href='/phpmotors/index.php?action=".urlencode($classification['classificationName'])."' title='View our $classification[classificationName] product line'>$classification[classificationName]</a></li>";
-   
-  }
-  $navList .= '</ul></div></nav>';
+
+$navList = navigationList($classifications);
 
 
-  $classList = '<select class="dropdown-menu" id="classification-list" name="classificationId">';
-  $classList .= '<option selected disabled>Select a Classification</option>';
-  foreach ($classifications as $classification) {
-    $classList .= "<option value='$classification[classificationId]'";
-    $classList .=">$classification[classificationName]</option>"; 
-  }
-  $classList .= '</select>';
 
 
 
@@ -44,16 +31,15 @@ $action = filter_input(INPUT_GET, 'action');
   
 
   case "addVehicle":
-    //TODO: Trim extra spaces
       $classificationId = filter_input(INPUT_POST, 'classificationId');
-      $invMake = filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_STRING);
-      $invModel = filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_STRING);
-      $invDescription = filter_input(INPUT_POST, 'invDescription', FILTER_SANITIZE_STRING);
-      $invImage = filter_input(INPUT_POST, 'invImage', FILTER_SANITIZE_STRING);
-      $invThumbnail = filter_input(INPUT_POST, 'invThumbnail', FILTER_SANITIZE_STRING);
-      $invPrice= filter_input(INPUT_POST, 'invPrice', FILTER_FLAG_ALLOW_FRACTION);
-      $invStock = filter_input(INPUT_POST, 'invStock', FILTER_SANITIZE_NUMBER_INT);
-      $invColor = filter_input(INPUT_POST, 'invColor', FILTER_SANITIZE_STRING);
+      $invMake = trim(filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_STRING));
+      $invModel = trim(filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_STRING));
+      $invDescription = trim(filter_input(INPUT_POST, 'invDescription', FILTER_SANITIZE_STRING));
+      $invImage = trim(filter_input(INPUT_POST, 'invImage', FILTER_SANITIZE_STRING));
+      $invThumbnail = trim(filter_input(INPUT_POST, 'invThumbnail', FILTER_SANITIZE_STRING));
+      $invPrice= trim(filter_input(INPUT_POST, 'invPrice', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
+      $invStock = trim(filter_input(INPUT_POST, 'invStock', FILTER_SANITIZE_NUMBER_INT));
+      $invColor = trim(filter_input(INPUT_POST, 'invColor', FILTER_SANITIZE_STRING));
       
 
     
