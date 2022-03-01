@@ -14,7 +14,6 @@ function checkPassword($clientPassword){
     return preg_match($pattern, $clientPassword);
    }
 
-//TODO: Didn't get the nav part
 
 function navigationList($classifications){
     // Build a navigation bar using the $classifications array
@@ -27,6 +26,27 @@ function navigationList($classifications){
     $navList .= '</ul></div></nav>';
     return $navList;
 }
+
+
+// Check for an existing email address
+function checkExistingEmail($clientEmail) {
+  $db =  phpmotorsConnect();
+  $sql = 'SELECT clientEmail FROM client WHERE clientEmail = :email';
+  $stmt = $db->prepare($sql);
+  $stmt->bindValue(':email', $clientEmail, PDO::PARAM_STR);
+  $stmt->execute();
+  $matchEmail = $stmt->fetch(PDO::FETCH_NUM);
+  $stmt->closeCursor();
+  if(empty($matchEmail)){
+   return 0;
+  // echo "Not found";
+  exit;
+  } else {
+   return 1;
+  // echo "matched";
+  exit;
+  }
+ }
 
 
 ?>

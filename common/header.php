@@ -18,7 +18,11 @@
             
                 <img src="/phpmotors/images/site/logo.png" alt="PHP Logo" id="logo">
                 <div id="acc">
+                <?php if(isset($cookieFirstname)){
+                echo "<span class='welcome'>Welcome,  $cookieFirstname</span>";
+                 } ?>
                     <a id="account" href="/phpmotors/accounts/index.php?action=login" title="Login or Register with PHP Motors">My Account</a>
+                    
                 </div>
             
         </header>
