@@ -13,7 +13,7 @@ if (isset($message)) {
 }
 ?>
 
-<form class="login">
+<form class="login" method="post" action="/phpmotors/accounts/">
   <label for="clientEmail">User Email:</label><br>
   <input name="clientEmail" id="clientEmail" type="email" placeholder="Email" required="required" <?php if(isset($clientEmail)){echo "value='$clientEmail'";}  ?>><br>
   <label for="clientPassword">Password:</label><br>

@@ -1,6 +1,5 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/header.php'; ?>
 
-
 <nav>
 <?php 
  echo$navList; ?> 
