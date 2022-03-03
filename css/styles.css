@@ -167,6 +167,22 @@ ul {
 
 }
 
+.loginName{
+    font-size: 40px;
+    font-weight: bolder;
+    position: relative;
+    margin: 2%;
+
+    
+}
+
+.infoList{
+  font-size: 25px;
+  list-style-type: circle;
+  position: relative;
+  margin: 5%;
+}
+
 
 
 .delups {

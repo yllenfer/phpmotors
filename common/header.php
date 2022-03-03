@@ -16,12 +16,20 @@
     <div id="wrapper">
         <header>
             
+
+        <!-- TODO: What should I do here? Even when I log out I stay in session  -->
                 <img src="/phpmotors/images/site/logo.png" alt="PHP Logo" id="logo">
                 <div id="acc">
                 <?php if(isset($cookieFirstname)){
-                echo "<span class='welcome'>Welcome,  $cookieFirstname</span>";
-                 } ?>
-                    <a id="account" href="/phpmotors/accounts/index.php?action=login" title="Login or Register with PHP Motors">My Account</a>
+                echo "<span class='welcome'>Welcome,  $cookieFirstname | <a href='/phpmotors/accounts/?action='logout' name='logout'>Log out</a> </span>";
+
+                 } 
+                 
+                 else{
+                 echo "<a id='account' href='/phpmotors/accounts/index.php?action=login' title='Login or Register with PHP Motors'>My Account</a>";
+                 }
+                 
+                 ?>
                     
                 </div>
             

@@ -32,7 +32,6 @@ $action = filter_input(INPUT_GET, 'action');
     //Filter and store login data
     // $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
     // $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
-//TODO: What happens once I login?
     // if(empty($clientEmail) || empty($clientPassword)){
     //   $message = '<p>Please provide information for all empty form fields.</p>';
     //   include '../view/login.php';
@@ -53,9 +52,7 @@ $action = filter_input(INPUT_GET, 'action');
   
   // A valid password exists, proceed with the login process
   // Query the client data based on the email address
-  //TODO: Don't understand this line. The original function name was getClient but that triggers and error
-  //TODO: Also I hashed the password in the accounts model. What should I do to match hashed passwords. 
-  $clientData = checkEmail($clientEmail);
+  $clientData = getClient($clientEmail);
   // Compare the password just submitted against
   // the hashed password for the matching client
   $hashCheck = password_verify($clientPassword, $clientData['clientPassword']);
@@ -67,10 +64,22 @@ $action = filter_input(INPUT_GET, 'action');
     exit;
   }
   // A valid user exists, log them in
-  $_SESSION['loggedin'] = TRUE;
-  // Remove the password from the array
+ if($_SESSION['loggedin'] = TRUE){
+  
+   // Remove the password from the array
   // the array_pop function removes the last
   // element from an array
+  //TODO: Add default 
+  // default:
+  // include '../view/admin.php';
+
+ }
+  
+
+ if($_SESSION['logggedin'] = False){
+  include '../index.php';
+}
+
   array_pop($clientData);
   // Store the array into the session
   $_SESSION['clientData'] = $clientData;
@@ -117,8 +126,8 @@ $action = filter_input(INPUT_GET, 'action');
     // Check and report the result
     if($regOutcome === 1){
       setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');
-      $message = "<p>Thanks for registering $clientFirstname. Please use your email and password to login.</p>";
-      include '../view/login.php';
+      $_SESSION['message'] = "Thanks for registering $clientFirstname. Please use your email and password to login.";
+      header('Location: /phpmotors/accounts/?action=login');
       exit;
     } else {
       $message = "<p>Sorry $clientFirstname, but the registration failed. Please try again.</p>";
@@ -128,8 +137,20 @@ $action = filter_input(INPUT_GET, 'action');
 
 
 
+    case 'logout':
+      unset($_SESSION);
+      session_destroy();
+      include '/index.php';
+      exit;
+
+      break;
+
+
+
     default:
     include '../view/home.php';
+
+
    break;
  }
  
