@@ -28,16 +28,14 @@ $action = filter_input(INPUT_GET, 'action');
  }
 
  switch ($action) {
-  case 'login':
-    //Filter and store login data
-    // $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
-    // $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
-    // if(empty($clientEmail) || empty($clientPassword)){
-    //   $message = '<p>Please provide information for all empty form fields.</p>';
-    //   include '../view/login.php';
-    //   exit;
-    // }
 
+   case 'admin':
+    include '../view/admin.php';
+    break;  
+
+
+
+  case 'login':
   $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
   $clientEmail = checkEmail($clientEmail);
   $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
@@ -63,20 +61,15 @@ $action = filter_input(INPUT_GET, 'action');
     include '../view/login.php';
     exit;
   }
-  // A valid user exists, log them in
+ 
  if($_SESSION['loggedin'] = TRUE){
   
-   // Remove the password from the array
-  // the array_pop function removes the last
-  // element from an array
-  //TODO: Add default 
-  // default:
-  // include '../view/admin.php';
+
 
  }
   
 
- if($_SESSION['logggedin'] = False){
+ if($_SESSION['loggedin'] = False){
   include '../index.php';
 }
 
@@ -96,6 +89,7 @@ $action = filter_input(INPUT_GET, 'action');
       $clientLastname = trim(filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_STRING));
       $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
       $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
+      //TODO: client email is not sticky when registering
       $clientEmail = checkEmail($clientEmail);
       $checkPassword = checkPassword($clientPassword);
 
@@ -140,7 +134,8 @@ $action = filter_input(INPUT_GET, 'action');
     case 'logout':
       unset($_SESSION);
       session_destroy();
-      include '/index.php';
+      setcookie('PHPSESSID', '', strtotime('-1 hour'), '/');
+      header('Location: /phpmotors/accounts/?action=index.php');;
       exit;
 
       break;

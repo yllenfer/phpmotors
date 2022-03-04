@@ -29,10 +29,15 @@ h6{
     
 }
 
-.error-message{
+.usethis {
+    margin-left: 5%;
+    font-size: 20px;
+}
+
+/* .error-message{
     color: red;
     visibility: visible;
-}
+} */
 
 form button{
     background-color: #417aac;
@@ -50,7 +55,7 @@ form button{
 .welcome{
     position: absolute;
   right: 2%;
-  margin-top: -20px;
+  margin-top: -10px;
  
   color: rgb(95, 95, 95);
   font-weight: bolder;
@@ -180,7 +185,9 @@ ul {
   font-size: 25px;
   list-style-type: circle;
   position: relative;
-  margin: 5%;
+  margin: 10%;
+  text-decoration: none;
+
 }
 
 
@@ -315,15 +322,16 @@ h3{
        
         .welcome{
             margin-right: 170px;
-            margin-top: 30px;;
+            margin-top: 30px;
+            
         }
         
+
         #account {
             margin-top: 5px;
             padding-bottom: 50px;
             margin-right: 180px;
             float: right;
-            text-decoration: none;
             text-decoration: none;
             color: rgb(97, 96, 96);
             font-weight: bolder;
@@ -331,6 +339,12 @@ h3{
         
         
         }
+
+        .infoList{
+            margin: 5%;
+          
+          }
+          
 
    
     
@@ -505,7 +519,7 @@ h3{
             list-style-type: none;
         }
     
-        #image-frame {
+        .image-frame {
             background-color: #4c96d7;
             width: 150px;
             height: 100px;

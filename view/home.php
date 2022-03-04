@@ -27,33 +27,33 @@
             
                     <div class="flux">
                         <ul>
-                        <div id="image-frame">
+                        <li class="image-frame">
                             <img src="/phpmotors/images/upgrades/flux-cap.png" alt="Flux Capacitor">
-                        </div>
+                        </li>
                         <li><a href="">Flux Capacitor</a></li>
                         </ul>
                     </div>
                     <div class="flame">
                         <ul>
-                        <div id="image-frame">
+                        <li class="image-frame">
                             <img src="/phpmotors/images/upgrades/flame.jpg" alt="Flames">
-                        </div>
+                        </li>
                        <li><a href="">Flame Decals</a></li> 
                        </ul>                  
                     </div>
                     <div class="bumper">
                         <ul>
-                        <div id="image-frame">
+                        <li class="image-frame">
                             <img src="/phpmotors/images/upgrades/bumper_sticker.jpg" alt="Bumper">
-                        </div>
+                            </li>
                         <li><a href="">Bumper Stickers</a></li>
                         </ul>
                     </div>
                     <div class="hubcap">
                         <ul>
-                        <div id="image-frame">
+                        <li class="image-frame">
                             <img src="/phpmotors/images/upgrades/hub-cap.jpg" alt="Hub Capacitator">
-                        </div>    
+                            </li>    
                         <li><a href="">Hub Caps</a></li> 
                         </ul>
 

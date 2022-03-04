@@ -69,7 +69,10 @@ $action = filter_input(INPUT_GET, 'action');
         case 'add-vehicle':
         include '../view/add-vehicle.php';
         break;
-
+    
+    case 'vehicle-mang':
+        include '../view/vehicle-management.php';
+        break;
 
         
     case "classification":
