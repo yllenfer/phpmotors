@@ -272,6 +272,21 @@ h3{
     margin-top: 12px;
 }
 
+
+#classificationList{
+    position: absolute;
+    margin-left: 30%;
+}
+
+#inventoryDisplay{
+    /* background-color: #417099; */
+    /* margin-top: 5%; */
+    /* position: absolute; */
+    margin-left: 15%;
+}
+
+
+
 @media (min-width: 280px) {
 #navbar a {
    font-size: 12px;
@@ -324,7 +339,20 @@ h3{
             margin-right: 170px;
             margin-top: 30px;
             
+
         }
+
+        #inventoryDisplay{
+            /* background-color: #417099; */
+            margin-left: 5%;
+        }
+
+
+        #classificationList{
+            position: relative;
+            margin-left: 10%;
+        }
+        
         
 
         #account {
@@ -464,7 +492,7 @@ h3{
             "image image image image";
         }
 
-
+   
         
         
     /*============================*/

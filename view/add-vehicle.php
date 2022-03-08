@@ -40,7 +40,7 @@ if (isset($message)) {
 
   <?php 
 
-  echo $classList
+  echo $classList;
   ?>
   <br>
   <label for="invMake">Make</label>
