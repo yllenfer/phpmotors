@@ -51,9 +51,28 @@ function getClientInfo($clientId){
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':clientId', $clientId, PDO::PARAM_INT);
     $stmt->execute();
-    $invInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+    $clientInfo = $stmt->fetch(PDO::FETCH_ASSOC);
     $stmt->closeCursor();
-    return $invInfo;
+    return $clientInfo;
    }
 
+
+
+
+// Update a client info
+function updateAccountInfo($clientFirstname, $clientLastname, $clientEmail, $clientId) {
+    $db = phpmotorsConnect();
+    $sql = 'UPDATE client SET clientFirstname = :clientFirstname, clientLastname = :clientLastname, clientEmail = :clientEmail WHERE clientId = :clientId';
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':clientFirstname', $clientFirstname, PDO::PARAM_STR);
+    $stmt->bindValue(':clientLastname', $clientLastname, PDO::PARAM_STR);
+    $stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_STR);
+    $stmt->bindValue(':clientId', $clientId, PDO::PARAM_STR);
+    
+
+    $stmt->execute();
+    $rowsChanged = $stmt->rowCount();
+    $stmt->closeCursor();
+    return $rowsChanged;
+  }
 ?>

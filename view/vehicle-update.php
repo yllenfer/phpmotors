@@ -91,8 +91,7 @@ if (isset($message)) {
   <br>
   <input type="text" id="invColor" name="invColor" required="required" <?php if(isset($invColor)){echo "value='$invColor'";}  elseif(isset($invInfo['invColor'])) {echo "value='$invInfo[invColor]'"; }?>>
  <br> <input type="hidden" name="action" value="updateVehicle">
- <input type="hidden" name="invId" value="
-<?php if(isset($invInfo['invId'])){ echo $invInfo['invId'];} elseif(isset($invId)){ echo $invId; } ?>">
+ <input type="hidden" name="invId" value="<?php if(isset($invInfo['invId'])){ echo $invInfo['invId'];} elseif(isset($invId)){ echo $invId; } ?>">
  <br>
   <button type="submit" value="Update Vehicle">Update</button>
 </form>

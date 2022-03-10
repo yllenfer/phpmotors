@@ -140,10 +140,33 @@ $action = filter_input(INPUT_GET, 'action');
 
       break;
 
-  case 'accountUpdate':
-    include '../view/account-update.php';
-    exit;
-
+      case 'accountUpdate':
+       // Filter and store the data
+      $clientFirstname = filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_STRING);
+      $clientLastname = filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_STRING);
+      $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
+      $clientId = filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_EMAIL);
+      $clientEmail = checkEmail($clientEmail);
+ 
+        
+      if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail)){
+      $message = '<p>Please complete all information for the item!</p>';
+         include '../view/account-update.php';
+     exit;
+    }
+    
+    $updateResult = updateAccountInfo($clientFirstname, $clientLastname, $clientEmail, $clientId);
+    if ($updateResult) {
+     $message = "<p class='noticeSuccess'>$clientFirstname, your information has been updated</p>";
+        $_SESSION['message'] = $message;
+        header('location: /phpmotors/vehicles/');
+        exit;
+    } else {
+        $message = "<p class='notice'>Error. the $invMake $invModel was not updated.</p>";
+         include '../view/vehicle-update.php';
+         exit;
+        }
+    break;
 
 
     default:
