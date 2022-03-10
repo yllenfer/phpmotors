@@ -34,7 +34,7 @@ if (isset($message)) {
 ?>
 
 
-  <form method="post" action="/phpmotors/vehicles/index.php">
+  <form class="formAddVehicle" method="post" action="/phpmotors/vehicles/index.php">
   <label>Choose a car:</label>
   <br>
 
@@ -78,5 +78,5 @@ if (isset($message)) {
  <br>
   <button type="submit">Add car</button>
 </form>
-  
+
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/footer.php'; ?>  

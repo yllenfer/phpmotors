@@ -9,9 +9,9 @@
 
 
 <?php
-  $classList = '<select class="dropdown-menu" id="classification-list" name="classificationId"> <br>';
-  $classList .= '<option selected disabled>Select a Classification</option> <br>';
-  foreach ($classifications as $classification) {
+  $classList = '<select class="dropdown-menu" name="classificationId">';
+  $classList .= '<option>Select a Classification</option>';
+  foreach($classifications as $classification) {
     $classList .= "<option value='$classification[classificationId]'";
     if(isset($classificationId)){
       if($classification['classificationId'] === $classificationId){
@@ -19,12 +19,12 @@
       }
     } elseif(isset($invInfo['classificationId'])){
     if($classification['classificationId'] === $invInfo['classificationId']){
-     $classifList .= ' selected ';
+     $classList .= ' selected ';
     }
    }
-   $classifList .= ">$classification[classificationName]</option>";
+   $classList .= ">$classification[classificationName]</option>";
    }
-   $classifList .= '</select> <br>';
+   $classList .= '</select>';
 
 ?>
 
@@ -91,8 +91,10 @@ if (isset($message)) {
   <br>
   <input type="text" id="invColor" name="invColor" required="required" <?php if(isset($invColor)){echo "value='$invColor'";}  elseif(isset($invInfo['invColor'])) {echo "value='$invInfo[invColor]'"; }?>>
  <br> <input type="hidden" name="action" value="updateVehicle">
+ <input type="hidden" name="invId" value="
+<?php if(isset($invInfo['invId'])){ echo $invInfo['invId'];} elseif(isset($invId)){ echo $invId; } ?>">
  <br>
-  <button type="submit" value="Update Vehicle">Update Vehicle</button>
+  <button type="submit" value="Update Vehicle">Update</button>
 </form>
   
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/footer.php'; ?>  

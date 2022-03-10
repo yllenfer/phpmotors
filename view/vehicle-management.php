@@ -1,6 +1,18 @@
 
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/header.php'; ?>
 
+<?php
+//TODO: What's wrong with this header?
+// if ($_SESSION['clientData']['clientLevel'] < 2) {
+//  header('location: /phpmotors/');
+//  exit;
+// }
+
+if (isset($_SESSION['message'])) {
+    $message = $_SESSION['message'];
+   }
+
+?>
 
 <nav>
 <?php //include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/nav.php'; 
@@ -29,7 +41,6 @@ echo $navList?>
 
 <?php
 
-//TODO: the message is not being received 
  if (isset($message)) { 
   echo $message; 
  } 
@@ -46,3 +57,4 @@ echo $navList?>
 <script src="/phpmotors/js/inventory.js"></script>
 
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/footer.php'; ?> 
+<?php unset($_SESSION['message']); ?>

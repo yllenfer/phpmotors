@@ -140,6 +140,10 @@ $action = filter_input(INPUT_GET, 'action');
 
       break;
 
+  case 'accountUpdate':
+    include '../view/account-update.php';
+    exit;
+
 
 
     default:

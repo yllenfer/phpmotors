@@ -29,15 +29,29 @@ h6{
     
 }
 
+
+.deleteForm{
+    /* border-style: solid; */
+    margin-top: 2%;
+    margin-left: 30%;
+}
+
 .usethis {
     margin-left: 5%;
     font-size: 20px;
 }
 
-/* .error-message{
+.notice{
     color: red;
-    visibility: visible;
-} */
+    font-style: italic;
+    font-weight: bold;
+}
+
+.noticeSuccess{
+    color: green;
+    font-style: italic;
+    font-weight: bold;
+}
 
 form button{
     background-color: #417aac;
@@ -341,6 +355,12 @@ h3{
             
 
         }
+
+.deleteForm{
+    /* border-style: solid; */
+    margin-top: 2%;
+    margin-left: 40%;
+}
 
         #inventoryDisplay{
             /* background-color: #417099; */

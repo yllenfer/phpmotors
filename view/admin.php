@@ -24,6 +24,12 @@ echo  "<ul class='infoList'>
 
 ?>
 
+
+<?php
+echo "<a class='usethis' href='/phpmotors/accounts/index.php?action=accountUpdate'>Update Account Information</a>";
+
+?>
+
 <?php
 
 if(isset($_SESSION['loggedin']) and ($_SESSION['clientData']['clientLevel'])== 1){
