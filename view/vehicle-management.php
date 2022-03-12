@@ -11,9 +11,9 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
 <?php
 
 
-// if (isset($_SESSION['message'])) {
-//     $message = $_SESSION['message'];
-//    }
+if (isset($_SESSION['message'])) {
+    $message = $_SESSION['message'];
+   }
 
 ?>
 

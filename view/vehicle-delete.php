@@ -6,12 +6,17 @@
 
 
 
-
-
 <nav>
 <?php 
  echo $navList?> 
 </nav>
+
+<?php
+if (isset($message)) {
+ echo $message;
+}
+?>
+
 
 <h1><?php if(isset($invInfo['invMake'])){ echo "Delete $invInfo[invMake] $invInfo[invModel]";} ?></h1>
 
