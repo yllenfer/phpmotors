@@ -1,16 +1,19 @@
+<?php
+if ($_SESSION['clientData']['clientLevel'] < 2) {
+ header('location: /phpmotors/');
+ exit;
+}
+
+?>
 
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/header.php'; ?>
 
 <?php
-//TODO: What's wrong with this header?
-// if ($_SESSION['clientData']['clientLevel'] < 2) {
-//  header('location: /phpmotors/');
-//  exit;
-// }
 
-if (isset($_SESSION['message'])) {
-    $message = $_SESSION['message'];
-   }
+
+// if (isset($_SESSION['message'])) {
+//     $message = $_SESSION['message'];
+//    }
 
 ?>
 

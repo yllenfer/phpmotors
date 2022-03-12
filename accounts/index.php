@@ -44,6 +44,8 @@ $action = filter_input(INPUT_GET, 'action');
   // Run basic checks, return if errors
   if (empty($clientEmail) || empty($passwordCheck)) {
   $message = '<p class="notice">Please provide a valid email address and password.</p>';
+  $_SESSION['message'] = $message;
+
   include '../view/login.php';
   exit;
   }
@@ -58,14 +60,13 @@ $action = filter_input(INPUT_GET, 'action');
   // and return to the login view
   if(!$hashCheck) {
     $message = '<p class="notice">Please check your password and try again.</p>';
+    $_SESSION['message'] = $message;
     include '../view/login.php';
     exit;
   }
  
  if($_SESSION['loggedin'] = TRUE){
   
-
-
  }
   
 
@@ -77,6 +78,9 @@ $action = filter_input(INPUT_GET, 'action');
   // Store the array into the session
   $_SESSION['clientData'] = $clientData;
   // Send them to the admin view
+  $message = "<p> </p>";
+  $_SESSION['message'] = $message;
+
   include '../view/admin.php';
   exit;
 
@@ -100,6 +104,8 @@ $action = filter_input(INPUT_GET, 'action');
       // Check for existing email address in the table
       if($existingEmail){
        $message = '<p class="notice">That email address already exists. Do you want to login instead?</p>';
+       $_SESSION['message'] = $message;
+
        include '../view/login.php';
        exit;
       }
@@ -135,7 +141,7 @@ $action = filter_input(INPUT_GET, 'action');
       unset($_SESSION);
       session_destroy();
       setcookie('PHPSESSID', '', strtotime('-1 hour'), '/');
-      header('Location: /phpmotors/accounts/?action=index.php');;
+      header('Location: /phpmotors/index.php');
       exit;
 
       break;
@@ -147,10 +153,12 @@ $action = filter_input(INPUT_GET, 'action');
       $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
       $clientId = filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_EMAIL);
       $clientEmail = checkEmail($clientEmail);
- 
+      
+     
+
         
       if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail)){
-      $message = '<p>Please complete all information for the item!</p>';
+      $message = "<p>Please complete all information for the item!</p>";
          include '../view/account-update.php';
      exit;
     }
@@ -159,18 +167,71 @@ $action = filter_input(INPUT_GET, 'action');
     if ($updateResult) {
      $message = "<p class='noticeSuccess'>$clientFirstname, your information has been updated</p>";
         $_SESSION['message'] = $message;
-        header('location: /phpmotors/vehicles/');
-        exit;
+
+  $clientData = getClientInfo($clientId);
+    array_pop($clientData);
+   $_SESSION['clientData'] = $clientData;
+
+
+  include '../view/admin.php';
+  exit;
+
+
     } else {
-        $message = "<p class='notice'>Error. the $invMake $invModel was not updated.</p>";
-         include '../view/vehicle-update.php';
+        $message = "<p class='notice'>Error. Your information was not updated.</p>";
+         include '../view/account-update.php';
          exit;
         }
+
+  exit;
     break;
 
 
+    case 'passwordUpdate':
+   // Filter and store the data
+   $clientFirstname = filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_STRING);
+   $clientId = filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_EMAIL);
+   $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
+  $passwordCheck = checkPassword($clientPassword);
+  $name = $_SESSION['clientData']['clientFirstname'];
+   
+  
+   
+     
+   if(empty($passwordCheck)){
+   $message = "<p class='notice'>Please enter a valid password, $name </p>";
+      include '../view/account-update.php';
+  exit;
+ }
+ 
+ $updateResult = updatePassword($clientFirstname, $clientPassword, $clientId);
+
+ if ($updateResult) {
+  $message = "<p class='noticeSuccess'>$name, your password has been updated</p>";
+     $_SESSION['message'] = $message;
+
+$clientData = getClientInfo($clientId);
+ array_pop($clientData);
+$_SESSION['clientData'] = $clientData;
+
+
+include '../view/admin.php';
+exit;
+
+
+ } else {
+     $message = "<p class='notice'>Error. Your information was not updated.</p>";
+      include '../view/account-update.php';
+      exit;
+     }
+
+exit;
+ break;
+
+
+
     default:
-    include '../view/home.php';
+    include '../view/admin.php';
 
 
    break;

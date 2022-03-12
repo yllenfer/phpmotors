@@ -29,6 +29,10 @@ h6{
     
 }
 
+.updatePassword:hover{
+    background-color: red;
+}
+
 
 .deleteForm{
     /* border-style: solid; */
@@ -69,7 +73,7 @@ form button{
 .welcome{
     position: absolute;
   right: 2%;
-  margin-top: -10px;
+  margin-top: -20px;
  
   color: rgb(95, 95, 95);
   font-weight: bolder;
@@ -300,6 +304,10 @@ h3{
 }
 
 
+/* .updatePasswordForm{
+    margin-top: -5%;
+} */
+
 
 @media (min-width: 280px) {
 #navbar a {
@@ -315,7 +323,7 @@ h3{
 
   #logo{
       width: 60%;
-      margin-left: 12px;
+      margin-left: -10px;
 
   }
 
@@ -341,25 +349,41 @@ h3{
     /*============================*/
     /*============================*/
     /*============================*/
-        header{
-            width: 30%;
-            height: 100px;
-            display: flex;
-            align-items: center;
-        }
+header{
+    width: 30%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
         
        
-        .welcome{
-            margin-right: 170px;
-            margin-top: 30px;
+.welcome{
+    margin-right: 170px;
+    margin-top: 30px;}
             
+.passwordDiv{
+    margin-left: -25%;
+    width: 70%;
+    font-size: 15px;
+    margin-top: -15%;
+    text-align: center;
 
         }
+
+
+#logo{
+    margin-left: 10px;
+}
 
 .deleteForm{
     /* border-style: solid; */
     margin-top: 2%;
     margin-left: 40%;
+}
+
+
+.updateForm{
+    margin-top: 30px;
 }
 
         #inventoryDisplay{

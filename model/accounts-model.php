@@ -18,6 +18,9 @@ function regClient($clientFirstname, $clientLastname, $clientEmail, $clientPassw
  $stmt->bindValue(':clientLastname', $clientLastname, PDO::PARAM_STR);
  $stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_STR);
  $stmt->bindValue(':clientPassword', password_hash($clientPassword, PASSWORD_DEFAULT), PDO::PARAM_STR);
+//  $stmt->bindValue(':clientPassword', $clientPassword,  PDO::PARAM_STR);
+
+
  // Insert the data
  $stmt->execute();
  // Ask how many rows changed as a result of our insert
@@ -75,4 +78,24 @@ function updateAccountInfo($clientFirstname, $clientLastname, $clientEmail, $cli
     $stmt->closeCursor();
     return $rowsChanged;
   }
+
+  function updatePassword($clientFirstname, $clientPassword, $clientId){
+    $db = phpmotorsConnect();
+    $sql = 'UPDATE client SET clientPassword = :clientPassword WHERE clientId = :clientId OR (clientFirstname = :clientFirstname)';
+    $stmt = $db->prepare($sql);
+    //$stmt->bindValue(':clientPassword', password_hash($clientPassword, PASSWORD_DEFAULT), PDO::PARAM_STR);
+    $stmt->bindValue(':clientFirstname', $clientFirstname, PDO::PARAM_STR);
+    $stmt->bindValue(':clientId', $clientId, PDO::PARAM_STR);
+    $stmt->bindValue(':clientPassword', password_hash($clientPassword, PASSWORD_DEFAULT), PDO::PARAM_STR);
+    
+
+    $stmt->execute();
+    $rowsChanged = $stmt->rowCount();
+    $stmt->closeCursor();
+    return $rowsChanged;
+
+
+  }
+
+
 ?>
