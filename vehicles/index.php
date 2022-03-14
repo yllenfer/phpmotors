@@ -73,7 +73,7 @@ $action = filter_input(INPUT_GET, 'action');
         break;
     
         
-    case "classification":
+    case "add-classification":
         $classificationName = filter_input(INPUT_POST, 'classificationName');
 
         if(empty($classificationName)){
@@ -86,6 +86,8 @@ $action = filter_input(INPUT_GET, 'action');
         // Send the data to the model
         $regOutcome = regCar($classificationName);
         if($regOutcome === 1){
+        $message = "<p class='noticeSuccess'>Congratulations, the $classificationName classification was successfully added.</p>";
+        $_SESSION['message'] = $message;
             header('Location: /phpmotors/vehicles/');
             exit;
         }
@@ -195,6 +197,27 @@ case 'deleteVehicle':
         exit;
     }
     break;
+
+
+    case 'classification':
+        $classificationName = filter_input(INPUT_GET, 'classificationName', FILTER_SANITIZE_STRING);
+        $vehicles = getVehiclesByClassification($classificationName);
+
+        if(!count($vehicles)){
+            $message = "<p class='notice'>Sorry, no $classificationName vehicles could be found.</p>";
+          } else {
+            $vehicleDisplay = buildVehiclesDisplay($vehicles);
+            
+            
+          }
+
+         // echo $vehicleDisplay;
+            //exit;
+
+         include '../view/classification.php';
+
+          
+        break;
 
     
 
