@@ -34,7 +34,9 @@
  echo $navList?> 
 </nav>
 
-
+<?php
+//echo $invMake
+?>
 
 
 <h1><?php if(isset($invInfo['invMake']) && isset($invInfo['invModel'])){ 
@@ -42,6 +44,9 @@
 elseif(isset($invMake) && isset($invModel)) { 
 	echo "Modify $invMake $invModel"; }?></h1>
 <?php
+
+
+
 if (isset($message)) {
  echo $message;
 }

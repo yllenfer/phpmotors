@@ -144,9 +144,7 @@ $action = filter_input(INPUT_GET, 'action');
         }
     break;
 
-    // case 'getInventoryItems&classificationId':
-    //     echo 'This is it';
-    //     exit;
+ 
 
 
     case 'getInventoryItems': 
@@ -177,6 +175,17 @@ $action = filter_input(INPUT_GET, 'action');
             include '../view/vehicle-delete.php';
             exit;
             break;
+
+    case 'det':
+        $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
+        $invInfo = getInventoryByInvId($invId);
+        if(count($invInfo)<1){
+            $message = 'Sorry, no vehicle information could be found.';
+           }
+        // echo $invId;
+        // exit;
+        include '../view/vehicle-detail.php';
+        break;
 
 
 case 'deleteVehicle':
@@ -218,6 +227,39 @@ case 'deleteVehicle':
 
           
         break;
+
+
+    case 'detail':
+        $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_NUMBER_INT);
+        $invMake = filter_input(INPUT_GET, 'invMake', FILTER_SANITIZE_STRING);
+        $invModel = filter_input(INPUT_GET, 'invModel', FILTER_SANITIZE_STRING);
+        $invDescription = filter_input(INPUT_GET, 'invDescription', FILTER_SANITIZE_STRING);
+        $invImage = filter_input(INPUT_GET, 'invImage', FILTER_SANITIZE_STRING);
+        $invThumbnail = filter_input(INPUT_GET, 'invThumbnail', FILTER_SANITIZE_STRING);
+        $invPrice = filter_input(INPUT_GET, 'invPrice', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+        $invStock = filter_input(INPUT_GET, 'invStock', FILTER_SANITIZE_NUMBER_INT);
+        $invColor = filter_input(INPUT_GET, 'invColor', FILTER_SANITIZE_STRING);
+        $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_NUMBER_INT);
+        // echo $invId;
+        // exit;
+       $vehicles = getInvItemInfo($invId);
+
+        if(!count($vehicles)){
+            $message = "<p class='notice'>Sorry, no $vehicles could be found.</p>";
+          } else {
+            $vehicleDisplay = buildVehiclesInfo($vehicles);
+            
+            
+          }
+
+        // echo "hello";
+        //     exit;
+
+        include '../view/vehicle-detail.php';
+        
+
+         break;
+       
 
     
 

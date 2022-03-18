@@ -50,4 +50,3 @@ if (isset($message)) {
 
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/footer.php'; ?> 
 
-<!-- TODO: Should I have a different form? -->

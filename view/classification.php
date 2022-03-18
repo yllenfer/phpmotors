@@ -1,3 +1,4 @@
+<title><?php echo $classificationName; ?> vehicles | PHP Motors, Inc.</title>
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/header.php'; ?>
 
 <nav>
@@ -5,7 +6,7 @@
  echo $navList?> 
 </nav>
 
-<title><?php echo $classificationName; ?> vehicles | PHP Motors, Inc.</title>
+
 
 
 <h1><?php echo $classificationName; ?> vehicles</h1>

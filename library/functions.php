@@ -67,13 +67,37 @@ function buildClassificationList($classifications){
   $dv = '<ul id="inv-display">';
   foreach ($vehicles as $vehicle) {
    $dv .= '<li>';
-   $dv .= "<img src='$vehicle[invThumbnail]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'>";
+   $dv .= "<a href='/phpmotors/vehicles/?action=detail&invId=" . $vehicle['invId']. "'" ."><img src='$vehicle[invThumbnail]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'></a>";
    $dv .= '<hr>';
    $dv .= "<h2>$vehicle[invMake] $vehicle[invModel]</h2>";
-   $dv .= "<span>$vehicle[invPrice]</span>";
+   $dv .= "<span><strong>" . "$" . number_format($vehicle['invPrice']). "</strong></span>";
    $dv .= '</li>';
   }
   $dv .= '</ul>';
   return $dv;
  }
+
+
+ function buildVehiclesInfo($vehicle){
+  $dv = '<ul id="info-display">';
+  $dv .= '<li>';
+  $dv .= "<img src='$vehicle[invImage]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'>";
+  $dv .= "<h3 class='usethis' id='invPrice'>" . "Price: $" . number_format($vehicle['invPrice']) . "</h3>";
+  $dv .= '</li>';
+  $dv .= "<div class='vehicletextInfo'>";
+  $dv .= "<h3 class='vDescription'>" . $vehicle['invMake'] . " ".$vehicle['invModel']  . " Details".  "</h3>";
+   $dv .= "<h4 class='usethis' id='invDescription'>" . $vehicle['invDescription'] . "</h4>";
+   $dv .= "<h3 class='usethis'>" . "Color: ". $vehicle['invColor'] . "</h3>";
+   $dv .= "<h3 class='usethis' id='invStock'>" . "# in Stock: ". $vehicle['invStock'] . "</h3>";
+   $dv .= "</div>";
+  
+  $dv .= '</ul>';
+  return $dv;
+ }
+
+//  echo "<script> var element = document.getElementById(invPrice);
+//      element.toLocaleString();
+
+
+//  </script> ";
 ?>
