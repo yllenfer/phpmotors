@@ -21,6 +21,20 @@ html{
     grid-template-rows:  1fr 1fr; */
 }
 
+
+
+/* #carhr{
+    height: 100px;
+    width: 100%;
+    color: #417099;
+} */
+
+
+.image-form{
+ margin-left: 10%;
+}
+
+
 #info-display img{
 width: 100%;
 }
@@ -29,12 +43,14 @@ width: 100%;
     position: relative;
     margin-top: -2%;
     padding-top: 8%;
+    
 }
 
 #invDescription, #invStock{
     background-color: rgb(235, 233, 233);
     margin-right: 2%;
     padding: 2%;
+    
 }  
 
 
@@ -46,6 +62,7 @@ width: 100%;
     padding: 0;
     display: flex;
     flex-direction: column;
+    
    }
 
 
@@ -57,23 +74,34 @@ width: 100%;
     list-style-type: none;
     flex: 1 1 auto;
     margin-left: 10%;
+    
     /* background-color: #04AA6D; */
    }
    
    #inv-display li img {
        max-width: 100%;
+       
+       
    }
 
 /* For vehicle display in classification view */
 #inv-display {
     flex-flow: row wrap;
     justify-content: flex-start;
+    
+    
     /* padding: 5%; */
 }
 
 #inv-display h2{
     font-size: 1rem;
+    
+    
+    
+    
 }
+
+
 
 #inv-display li {
     max-width: 200px;
@@ -83,10 +111,13 @@ width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
+    
 }
   
 #inv-display div {
     width: 100%;
+    
 }
 
 
@@ -775,10 +806,16 @@ a .carclass{
 }
 
 #info-display img{
-    margin-left: 2%;
+    margin-left: 35%;
 }
 
+.vehicletextInfo{
+    margin-left: 30%;
+}
 
+.thubmnail-images{
+    display: block;
+}
 
     }
     

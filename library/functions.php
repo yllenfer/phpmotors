@@ -68,7 +68,7 @@ function buildClassificationList($classifications){
   foreach ($vehicles as $vehicle) {
    $dv .= '<li>';
    $dv .= "<a href='/phpmotors/vehicles/?action=detail&invId=" . $vehicle['invId']. "'" ."><img src='$vehicle[invThumbnail]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'></a>";
-   $dv .= '<hr>';
+  //  $dv .= '<hr id="carhr">';
    $dv .= "<h2>$vehicle[invMake] $vehicle[invModel]</h2>";
    $dv .= "<span><strong>" . "$" . number_format($vehicle['invPrice']). "</strong></span>";
    $dv .= '</li>';
@@ -84,6 +84,7 @@ function buildClassificationList($classifications){
   $dv .= "<img src='$vehicle[invImage]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'>";
   $dv .= "<h3 class='usethis' id='invPrice'>" . "Price: $" . number_format($vehicle['invPrice']) . "</h3>";
   $dv .= '</li>';
+  // $dv .= "<h2>Hello </h2>";
   $dv .= "<div class='vehicletextInfo'>";
   $dv .= "<h3 class='vDescription'>" . $vehicle['invMake'] . " ".$vehicle['invModel']  . " Details".  "</h3>";
    $dv .= "<h4 class='usethis' id='invDescription'>" . $vehicle['invDescription'] . "</h4>";
@@ -100,4 +101,66 @@ function buildClassificationList($classifications){
 
 
 //  </script> ";
+
+
+
+/* * ********************************
+*  Functions for working with images
+* ********************************* */
+
+
+// Adds "-tn" designation to file name
+function makeThumbnailName($image) {
+  $i = strrpos($image, '.');
+  $image_name = substr($image, 0, $i);
+  $ext = substr($image, $i);
+  $image = $image_name . '-tn' . $ext;
+  return $image;
+ }
+
+
+
+// Build images display for image management view
+function buildImageDisplay($imageArray) {
+  $id = '<ul id="image-display">';
+  foreach ($imageArray as $image) {
+   $id .= '<li>';
+   $id .= "<img src='$image[imgPath]' title='$image[invMake] $image[invModel] image on PHP Motors.com' alt='$image[invMake] $image[invModel] image on PHP Motors.com'>";
+   $id .= "<p><a href='/phpmotors/uploads?action=delete&imgId=$image[imgId]&filename=$image[imgName]' title='Delete the image'>Delete $image[imgName]</a></p>";
+   $id .= '</li>';
+ }
+  $id .= '</ul>';
+  return $id;
+ }
+
+
+ // Build the vehicles select list
+function buildVehiclesSelect($vehicles) {
+  $prodList = '<select name="invId" id="invId">';
+  $prodList .= "<option>Choose a Vehicle</option>";
+  foreach ($vehicles as $vehicle) {
+   $prodList .= "<option value='$vehicle[invId]'>$vehicle[invMake] $vehicle[invModel]</option>";
+  }
+  $prodList .= '</select>';
+  return $prodList;
+ }
+
+
+
+ function buildVehicleThumbnail($vehicleThumbnails){
+  $dv = '<ul">';
+  $dv .= '<li class="thubmnai-images">';
+  foreach($vehicleThumbnails as $image)
+  $dv .= "<img src='$image[imgPath]' title='$image[imgName]  image on PHP Motors.com' alt='$image[imgName] image on PHP Motors.com'>";
+  $dv .= '</li>';
+  $dv .= "<div class='vehicletextInfo'>";
+   $dv .= "</div>";
+  
+  $dv .= '</ul>';
+  return $dv;
+ }
+
+
+
+
 ?>

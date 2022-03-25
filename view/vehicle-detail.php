@@ -17,6 +17,11 @@
 
 
 
+<?php if(isset($thumbnailDisplay)){
+ echo $thumbnailDisplay;
+} ?>
+
+
 <?php if(isset($vehicleDisplay)){
  echo $vehicleDisplay;
 } ?>

@@ -17,7 +17,7 @@
                     Fuzzy dice!
                 </p>
                 <img src="/phpmotors/images/site/own_today.png" alt="Own Today" id="owntoday" class="owntoday">
-                <img src="/phpmotors/images/delorean.jpg" alt="Delorean" id="delorean" class="delorean">
+                <img src="/phpmotors/images/vehicles/delorean.jpg" alt="Delorean" id="delorean" class="delorean">
                 <!-- <img src="/phpmotors/images/site/own_today.png" alt="Own Today" id="owntoday_small"> -->
             </div>
         </main>

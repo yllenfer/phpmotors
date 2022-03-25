@@ -15,6 +15,8 @@ require_once '../model/vehicle-model.php';
 //Get functions
 require_once '../library/functions.php';
 
+require_once '../model/uploads-model.php';
+
   // Get the array of classifications
 	$classifications = getClassifications();
 
@@ -243,11 +245,13 @@ case 'deleteVehicle':
         // echo $invId;
         // exit;
        $vehicles = getInvItemInfo($invId);
+       $thumbnail = getVehiclesByThubmnail($invId);
 
         if(!count($vehicles)){
             $message = "<p class='notice'>Sorry, no $vehicles could be found.</p>";
           } else {
             $vehicleDisplay = buildVehiclesInfo($vehicles);
+            $thumbnailDisplay = buildVehicleThumbnail($thumbnail);
             
             
           }
