@@ -1,12 +1,11 @@
-<title><?php if(isset($vehicles['invMake'])){ echo " $vehicles[invMake] $vehicles[invModel]";} ?> | PHP Motors</title>
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/header.php'; ?>
 
-<nav>
+<!-- <nav> -->
 <?php 
  echo $navList?> 
-</nav>
+<!-- </nav> -->
 
-<title><?php echo $invId; ?> vehicles | PHP Motors, Inc.</title>
+<!-- <title><?//php echo $invId; ?> vehicles | PHP Motors, Inc.</title> -->
 
 
 <h1><?php if(isset($vehicles['invMake'])){ echo "$vehicles[invMake] $vehicles[invModel]";} ?></h1>

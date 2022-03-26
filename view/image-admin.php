@@ -1,3 +1,4 @@
+<title><?php echo $classificationName; ?> vehicles | PHP Motors, Inc.</title>
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/header.php'; ?>
 
 
@@ -28,8 +29,8 @@ if (isset($_SESSION['message'])) {
 		<input type="radio" name="imgPrimary" id="priNo" class="pImage" checked value="0">
 	</fieldset>
  <label>Upload Image:</label>
- <input type="file" name="file1">
- <input type="submit" class="regbtn" value="Upload">
+<b> <input type="file" name="file1"> </b>
+ <strong><input type="submit" class="regbtn" value="Upload"></strong>
  <input type="hidden" name="action" value="upload">
 </form>
 <hr>

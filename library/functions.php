@@ -69,7 +69,7 @@ function buildClassificationList($classifications){
    $dv .= '<li>';
    $dv .= "<a href='/phpmotors/vehicles/?action=detail&invId=" . $vehicle['invId']. "'" ."><img src='$vehicle[invThumbnail]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'></a>";
   //  $dv .= '<hr id="carhr">';
-   $dv .= "<h2>$vehicle[invMake] $vehicle[invModel]</h2>";
+   $dv .= "<a> <h2>$vehicle[invMake] $vehicle[invModel]</h2></a>";
    $dv .= "<span><strong>" . "$" . number_format($vehicle['invPrice']). "</strong></span>";
    $dv .= '</li>';
   }
@@ -85,12 +85,12 @@ function buildClassificationList($classifications){
   $dv .= "<h3 class='usethis' id='invPrice'>" . "Price: $" . number_format($vehicle['invPrice']) . "</h3>";
   $dv .= '</li>';
   // $dv .= "<h2>Hello </h2>";
-  $dv .= "<div class='vehicletextInfo'>";
+  $dv .= "<li class='vehicletextInfo'>";
   $dv .= "<h3 class='vDescription'>" . $vehicle['invMake'] . " ".$vehicle['invModel']  . " Details".  "</h3>";
    $dv .= "<h4 class='usethis' id='invDescription'>" . $vehicle['invDescription'] . "</h4>";
    $dv .= "<h3 class='usethis'>" . "Color: ". $vehicle['invColor'] . "</h3>";
    $dv .= "<h3 class='usethis' id='invStock'>" . "# in Stock: ". $vehicle['invStock'] . "</h3>";
-   $dv .= "</div>";
+   $dv .= "</li>";
   
   $dv .= '</ul>';
   return $dv;
@@ -148,13 +148,14 @@ function buildVehiclesSelect($vehicles) {
 
 
  function buildVehicleThumbnail($vehicleThumbnails){
-  $dv = '<ul">';
-  $dv .= '<li class="thubmnai-images">';
+  $dv = '<ul>';
+  $dv .= '<li class="thumbnail-images">';
   foreach($vehicleThumbnails as $image)
   $dv .= "<img src='$image[imgPath]' title='$image[imgName]  image on PHP Motors.com' alt='$image[imgName] image on PHP Motors.com'>";
+  $dv .= "<br>";
   $dv .= '</li>';
-  $dv .= "<div class='vehicletextInfo'>";
-   $dv .= "</div>";
+  $dv .= "<li class='vehicletextInfo'> </li>";
+  // $dv .= "</div>";
   
   $dv .= '</ul>';
   return $dv;

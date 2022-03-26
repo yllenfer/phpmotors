@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP Motors | Template</title>
+    <title><?php if(isset($vehicles['invMake'])){ echo " $vehicles[invMake] $vehicles[invModel]";} ?> | PHP Motors</title>
     <link rel="stylesheet" href="/phpmotors/css/styles.css" type="text/css" media="screen">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
