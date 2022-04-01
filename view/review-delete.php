@@ -13,7 +13,7 @@
 
 <?php
 if (isset($message)) {
- echo $message;
+echo $message;
 }
 ?>
 
@@ -22,18 +22,19 @@ if (isset($message)) {
 
 
 <?php if (isset($message)) {echo $message;}?>
-<h4 class="usethis">Confirm Vehicle Deletion. The delete is permanent</h4>
-e="text" id="invModel" name="invModel" readonly required="required" <?php if(isset($invInfo['invModel'])) {echo "value='$invInfo[invModel]'";} ?>>
+
+<h4 class="usethis">Confirm Review Deletion. The delete is permanent</h4>
+
+<form class="deleteForm" method="post" action="/phpmotors/reviews/index.php">
  <br>
-  <label for="invDescription">Reviews</label>
+  <label for="reviewText">Reviews</label>
  <br>
-<textarea id="invDescription" name="invDescription" readonly rows="2" cols="20" required oninvalid="this.setCustomValidity('Please enter a review')" oninput="this.setCustomValidity('')" ><?php if(isset($invInfo['invDescription'])) {echo $invInfo['invDescription'];}  ?></textarea>
+<textarea id="reviewText" name="reviewText" readonly rows="2" cols="20" required oninvalid="this.setCustomValidity('Please enter a review')" oninput="this.setCustomValidity('')" ><?php if(isset($reviewInfo['reviewText'])) {echo $reviewInfo['reviewText'];}  ?></textarea>
  <br>
  
  <br> <input type="hidden" name="action" value="deleteReview">
- <input type="hidden" name="invId" value="
-<?php if(isset($invInfo['invId'])){ echo $invInfo['invId'];} elseif(isset($invId)){ echo $invId; } ?>">
-  <button type="submit" value="Delete Vehicle">Delete</button>
+
+  <button type="submit" value="Delete Review">Delete</button>
 </form>
   
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/footer.php'; ?>  

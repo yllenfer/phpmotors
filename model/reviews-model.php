@@ -70,4 +70,22 @@ function getReviewInfoClient($clientId){
         }
 
 
+
+function updateReview($reviewId, $reviewText) {
+    $db = phpmotorsConnect();
+    $sql = 'UPDATE reviews SET reviewText = :reviewText  WHERE reviewId = :reviewId';
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':reviewText', $reviewText, PDO::PARAM_STR);
+    $stmt->bindValue(':reviewId', $reviewId, PDO::PARAM_INT);
+    $stmt->execute();
+    $rowsChanged = $stmt->rowCount();
+    $stmt->closeCursor();
+    return $rowsChanged;
+    }
+
+
+
+    
+    
+
 ?>

@@ -209,11 +209,11 @@ $dv .= "<ul class='reviewForm'>";
 
 //Function to manage rwviews
 function manageReview($reviewText){
-  $dv = "<ul>";
+  $dv = "<ul class='reviewManager'>";
   $dv .= '<h3>Manage your product review <h3>';
   foreach($reviewText as $review){
     // $dv .= '';
-   $dv .= '<li>' . $review['invMake']. $review['invModel']. " Reviewd on (". date("j F, Y",strtotime($review['reviewDate'])) . ")" . '<a href="/phpmotors/reviews?action=del&reviewId">Edit</a> <a>Delete</a></li>';
+   $dv .= '<li>' . $review['invMake']. " ".$review['invModel']. " Reviewd on (". date("j F, Y",strtotime($review['reviewDate'])) . ")" . '<a href="/phpmotors/reviews?action=mod&reviewId=' . $review['reviewId'].'">Edit</a> <a href="/phpmotors/reviews?action=del&reviewId=' . $review['reviewId']. '">Delete</a></li>';
   //  $dv .= '';
    
   }

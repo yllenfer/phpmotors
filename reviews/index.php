@@ -106,6 +106,8 @@ case 'displayReview':
     case 'mod':
         $reviewId = filter_input(INPUT_GET, 'reviewId', FILTER_VALIDATE_INT);
         $reviewInfo = getReviewItemInfo($reviewId);
+        $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
+        //$invInfo = getInvItemInfoReview($invId);
         if(count($reviewInfo)<1){
             $message = 'Sorry, no vehicle information could be found.';
            }
@@ -122,6 +124,43 @@ case 'displayReview':
             exit;
             break;
 
+    case 'deleteReview':
+        $reviewId = filter_input(INPUT_POST, 'reviewId', FILTER_SANITIZE_NUMBER_INT);
+        
+        $deleteResult = deleteReview($reviewId);
+        if ($deleteResult) {
+            $message = "<p class='notice'>Congratulations your review was successfully deleted.</p>";
+            $_SESSION['message'] = $message;
+            header('location: /phpmotors/accounts/');
+            exit;
+
+        } else {
+            $message = "<p class='notice'>Error: Your review was not deleted.</p>";
+            $_SESSION['message'] = $message;
+            header('location: /phpmotors/accounts/');
+            exit;
+        }
+        break;
+            
+
+        case 'reviewUpdate':
+            $reviewId = filter_input(INPUT_POST, 'reviewId', FILTER_SANITIZE_NUMBER_INT);
+            $reviewText = filter_input(INPUT_POST, 'reviewText', FILTER_SANITIZE_STRING);
+        
+            $updateResult = updateReview($reviewId, $reviewText);
+            if ($updateResult) {
+                $message = "<p class='notice'>Congratulations your review was successfully updated.</p>";
+                $_SESSION['message'] = $message;
+                header('location: /phpmotors/accounts/');
+                exit;
+    
+            } else {
+                $message = "<p class='notice'>Error: Your review was not updated.</p>";
+                $_SESSION['message'] = $message;
+                header('location: /phpmotors/accounts/');
+                exit;
+            }
+            break;
 
 
 

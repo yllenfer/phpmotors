@@ -22,6 +22,10 @@ html{
 }
 
 
+.reviewManager li{
+    font-size: 20px;
+    list-style-type: circle;
+}
 
  .reviewForm{
     /* background-color:rgb(218, 226, 146); */

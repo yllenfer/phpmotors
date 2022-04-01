@@ -1,5 +1,6 @@
 
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/header.php'; ?>
+<title><?php echo $_SESSION['clientData']['clientFirstname']; ?> Information | PHP Motors, Inc.</title>
 
 
 <nav>
@@ -59,4 +60,5 @@ if(isset($_SESSION['loggedin']) and ($_SESSION['clientData']['clientLevel'])== 3
 ?>
 
 
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/footer.php'; ?>  
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/footer.php'; ?> 
+<?php unset($_SESSION['message']); ?>
