@@ -23,6 +23,28 @@ html{
 
 
 
+ .reviewForm{
+    /* background-color:rgb(218, 226, 146); */
+    margin: 5%;
+    height: 200px;
+    position: relative;
+    z-index: 2;
+    width: auto;
+    margin-bottom: 30%;
+  
+
+}
+
+div .reviewInfo {
+    font-weight: bolder;
+    font-size: larger;
+    padding: 2%;
+    background-color: #f2f2f2;
+    border: #4c96d7 solid;
+    margin: 2%;
+    position: relative;
+}
+
 #image-display{
     display: block;
     
@@ -62,7 +84,7 @@ html{
     grid-template-columns: 1fr 1fr 1fr;
     position: absolute;
     margin-top: 125%;
-    width: 50%;
+    /* width: 70%; */
     grid-gap: 2px;
 
     
@@ -480,6 +502,7 @@ h3{
     /* margin-top: 5%; */
     /* position: absolute; */
     margin-left: 15%;
+    background-color: #417099;
 }
 
 
@@ -907,10 +930,10 @@ a .carclass{
     display: grid;
     text-decoration: none;
     grid-template-columns: 1fr;
-    grid-template-rows:  1fr;
+    grid-template-rows:  1fr 1fr;
     position: absolute;
     z-index: 2;
-    max-width: 200px;
+    max-width: 300px;
     /* grid-gap: -40px; */
     margin-top: -10px;
     margin-left: 10px;
@@ -928,11 +951,13 @@ a .carclass{
     margin-top: 2%;
     max-width: 190px;
     position: relative;
+    padding: 30px;
+    /* background-color: #04AA6D; */
 }
 
 
 .thumbnail-images img:hover {
-    transform: scale(1.2); 
+    transform: scale(1.5); 
   }
 
 
@@ -952,9 +977,22 @@ a .carclass{
   }
 
   
-#invPrice{
+#info-display #invPrice{
     position: absolute;
     margin-left: 50%;
+}
+
+
+.review-form{
+    border-style: groove;
+    margin-left: 20px;
+    padding: 2%;
+    margin-top: 10px;
+    background-color: #ddd;
+}
+
+.reviewTitle{
+ margin-top: 20%;
 }
 
 

@@ -13,6 +13,9 @@ require_once '../model/accounts-model.php';
 // Get the functions library
 require_once '../library/functions.php';
 
+require_once '../model/reviews-model.php';
+
+
 
 
   // Get the array of classifications
@@ -30,7 +33,10 @@ $action = filter_input(INPUT_GET, 'action');
  switch ($action) {
 
    case 'admin':
+
+
     include '../view/admin.php';
+
     break;  
 
 
@@ -40,6 +46,14 @@ $action = filter_input(INPUT_GET, 'action');
   $clientEmail = checkEmail($clientEmail);
   $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
   $passwordCheck = checkPassword($clientPassword);
+ 
+  // var_dump($myReviews);
+  // exit;
+
+ 
+  
+  
+ 
 
   // Run basic checks, return if errors
   if (empty($clientEmail) || empty($passwordCheck)) {
@@ -80,6 +94,11 @@ $action = filter_input(INPUT_GET, 'action');
   // Send them to the admin view
   $message = "<p> </p>";
   $_SESSION['message'] = $message;
+  
+  $myReviews = getReviewInfoClient($_SESSION['clientData']['clientId']);
+  // var_dump($myReviews);
+  // exit;
+  $buildMyReview = manageReview($myReviews);
 
   include '../view/admin.php';
   exit;
@@ -173,6 +192,12 @@ $action = filter_input(INPUT_GET, 'action');
    $_SESSION['clientData'] = $clientData;
 
 
+   $myReviews = getReviewInfoClient($_SESSION['clientData']['clientId']);
+  //  var_dump($myReviews);
+  // exit;
+   $buildMyReview = manageReview($myReviews);
+ 
+
   include '../view/admin.php';
   exit;
 
@@ -194,6 +219,7 @@ $action = filter_input(INPUT_GET, 'action');
    $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
   $passwordCheck = checkPassword($clientPassword);
   $name = $_SESSION['clientData']['clientFirstname'];
+  
    
   
    
@@ -214,6 +240,13 @@ $clientData = getClientInfo($clientId);
  array_pop($clientData);
 $_SESSION['clientData'] = $clientData;
 
+$myReviews = getReviewInfoClient($_SESSION['clientData']['clientId']);
+// var_dump($myReviews);
+//   exit;
+
+$buildMyReview = manageReview($myReviews);
+
+
 
 include '../view/admin.php';
 exit;
@@ -231,6 +264,14 @@ exit;
 
 
     default:
+    $myReviews = getReviewInfoClient($_SESSION['clientData']['clientId']);
+   
+
+    $buildMyReview = manageReview($myReviews);
+    // var_dump($buildMyReview);
+    // exit;
+  
+
     include '../view/admin.php';
 
 

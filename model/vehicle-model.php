@@ -129,8 +129,6 @@ return $rowsChanged;
 function getVehiclesByClassification($classificationName){
     $db = phpmotorsConnect();
     $sql = 'SELECT * FROM inventory WHERE classificationId IN (SELECT classificationId FROM carclassification WHERE classificationName = :classificationName)';
-    //$sql = 'SELECT imgId, imgPath, imgName, imgDate, inventory.invId, invMake, invModel FROM images JOIN inventory ON images.invId = inventory.invId';
-    //$sql = 'SELECT imgId, imgPath, imgName, imgDate FROM images WHERE imgName LIKE "%-tn%" AND invId = :invId';
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':classificationName', $classificationName, PDO::PARAM_STR);
     $stmt->execute();

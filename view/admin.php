@@ -33,7 +33,17 @@ echo  "<ul class='infoList'>
 
 
 <?php
+if(isset($buildMyReview)){
+    echo $buildMyReview;
+}
+?>
+
+
+
+
+<?php
 echo "<a class='usethis' href='/phpmotors/accounts/index.php?action=accountUpdate'>Update Account Information</a>";
+
 
 ?>
 

@@ -83,16 +83,22 @@ function buildClassificationList($classifications){
   $dv .= '<li>';
   $dv .= "<img src='$vehicle[invImage]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'>";
   $dv .= "<h3 class='usethis' id='invPrice'>" . "Price: $" . number_format($vehicle['invPrice']) . "</h3>";
+ 
   $dv .= '</li>';
   // $dv .= "<h2>Hello </h2>";
+ 
   $dv .= "<li class='vehicletextInfo'>";
+  
   $dv .= "<h3 class='vDescription'>" . $vehicle['invMake'] . " ".$vehicle['invModel']  . " Details".  "</h3>";
+
    $dv .= "<h4 class='usethis' id='invDescription'>" . $vehicle['invDescription'] . "</h4>";
    $dv .= "<h3 class='usethis'>" . "Color: ". $vehicle['invColor'] . "</h3>";
    $dv .= "<h3 class='usethis' id='invStock'>" . "# in Stock: ". $vehicle['invStock'] . "</h3>";
+ 
    $dv .= "</li>";
   
   $dv .= '</ul>';
+ 
   return $dv;
  }
 
@@ -146,22 +152,74 @@ function buildVehiclesSelect($vehicles) {
  }
 
 
-
+//Function to create thubmnail 
  function buildVehicleThumbnail($vehicleThumbnails){
   $dv = '<ul>';
   $dv .= '<li class="thumbnail-images">';
   foreach($vehicleThumbnails as $image)
   $dv .= "<img src='$image[imgPath]' title='$image[imgName]  image on PHP Motors.com' alt='$image[imgName] image on PHP Motors.com'>";
   $dv .= "<br>";
-  $dv .= '</li>';
   $dv .= "<li class='vehicletextInfo'> </li>";
+  $dv .= '</li>';
+ 
   // $dv .= "</div>";
-  
   $dv .= '</ul>';
   return $dv;
+  
  }
 
 
+//Function to crate form
+function buildReviews($invId, $clientId){
+  $dv = '<br>';
+  $dv .= '<form class="review-form" method="post" action="/phpmotors/reviews/index.php">';
+  $dv .= '<label for="clientFirstname">Screen Name</label>';
+  $dv .= '<br>';
+  $dv .= '<input type="hidden" name="invId"' .'value="' . $invId . ' " >';
+  $dv .= '<input type="hidden" name="clientId" value="'. $clientId . '">';
+  $dv .= '<input type="text" id="clientFirtname" name="clientFirstname" required="required">';
+  $dv .= '<br>';
+  $dv .= '<label for="reviewText">Screen Name</label>';
+  $dv .= '<br>';
+  $dv .= '<textarea id="reviewText" name="reviewText" rows="5" cols="80" required></textarea>';
+  $dv .= '<br>';
+  $dv .= '<input type="hidden" name="action" value="addReview">';
+  // $dv .= '<br>';
+  $dv .= '<button type="submit" value="Add Review">Add</button>';
+ $dv .= '</form>';
+ return $dv;
+}
+
+//Function to display review
+function getVehicleReview($reviewText){
+$dv = '<br>';
+$dv .= "<ul class='reviewForm'>";
+ foreach($reviewText as $review){
+//  $dv .= '<li>';
+ $dv .= '<div class="reviewInfo" id="reviewId">' . substr($review['clientFirstname'], 0, 1) . $review['clientLastname']. ' wrote on ' .  date("j F, Y", strtotime($review['reviewDate'])) . '<br>' . $review['reviewText'] . '</div>';
+//  $dv .= '</li>';
+}
+// echo $dv;
+// exit;
+ $dv .= "</ul>";
+ return $dv;
+}
+
+
+
+//Function to manage rwviews
+function manageReview($reviewText){
+  $dv = "<ul>";
+  $dv .= '<h3>Manage your product review <h3>';
+  foreach($reviewText as $review){
+    // $dv .= '';
+   $dv .= '<li>' . $review['invMake']. $review['invModel']. " Reviewd on (". date("j F, Y",strtotime($review['reviewDate'])) . ")" . '<a href="/phpmotors/reviews?action=del&reviewId">Edit</a> <a>Delete</a></li>';
+  //  $dv .= '';
+   
+  }
+$dv .= '</ul>';
+  return $dv;
+}
 
 
 ?>

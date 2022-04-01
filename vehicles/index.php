@@ -17,6 +17,8 @@ require_once '../library/functions.php';
 
 require_once '../model/uploads-model.php';
 
+require_once '../model/reviews-model.php';
+
   // Get the array of classifications
 	$classifications = getClassifications();
 
@@ -232,7 +234,9 @@ case 'deleteVehicle':
 
 
     case 'detail':
+
         $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_NUMBER_INT);
+        $reviewDate = filter_input(INPUT_POST, 'reviewDate', FILTER_SANITIZE_STRING);
         $invMake = filter_input(INPUT_GET, 'invMake', FILTER_SANITIZE_STRING);
         $invModel = filter_input(INPUT_GET, 'invModel', FILTER_SANITIZE_STRING);
         $invDescription = filter_input(INPUT_GET, 'invDescription', FILTER_SANITIZE_STRING);
@@ -242,11 +246,26 @@ case 'deleteVehicle':
         $invStock = filter_input(INPUT_GET, 'invStock', FILTER_SANITIZE_NUMBER_INT);
         $invColor = filter_input(INPUT_GET, 'invColor', FILTER_SANITIZE_STRING);
         $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_NUMBER_INT);
-        // echo $invId;
+        $reviewText = filter_input(INPUT_GET, 'reviewText', FILTER_SANITIZE_STRING);
+        $clientId = filter_input(INPUT_GET, 'clientId', FILTER_SANITIZE_NUMBER_INT);
+        $clientId = $_SESSION['clientData']['clientId'];
+        $reviews = getReviewInfo($invId);
+        $reviewDate = filter_input(INPUT_POST, 'reviewDate', FILTER_SANITIZE_NUMBER_INT);
+        // $formattedDate = date("j F Y", $reviewDate);
+        //  echo $reviewDate;
         // exit;
+        
+        $buildReviewsInfo = getVehicleReview($reviews);
+        // if ($buildReviewsInfo === 1){
+        //     $message = "<p class='notice'>WAs added</p>";
+        //     header('location: /phpmotors/reviews/');
+        // }
+       
        $vehicles = getInvItemInfo($invId);
        $thumbnail = getVehiclesByThubmnail($invId);
+       $reviewDisplay = buildReviews($invId, $clientId);
 
+  
         if(!count($vehicles)){
             $message = "<p class='notice'>Sorry, no $vehicles could be found.</p>";
           } else {
@@ -254,22 +273,30 @@ case 'deleteVehicle':
             $thumbnailDisplay = buildVehicleThumbnail($thumbnail);
             
             
+            
           }
 
         // echo "hello";
         //     exit;
 
-        include '../view/vehicle-detail.php';
+        include 
+       // $reviewDisplay = buildReviews($invId, $clientId);
+        '../view/vehicle-detail.php';
         
 
          break;
+
+
+
+
+         
        
 
     
 
 
          default:
-         $classificationList = buildClassificationList($classifications);
+         //TODO: Come back here for the default detail view; 
         include '../view/vehicle-management.php';
        break;
 

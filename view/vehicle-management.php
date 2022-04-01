@@ -59,5 +59,6 @@ echo $navList?>
 <table id="inventoryDisplay"></table>
 <script src="/phpmotors/js/inventory.js"></script>
 
+
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/footer.php'; ?> 
 <?php unset($_SESSION['message']); ?>
