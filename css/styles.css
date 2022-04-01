@@ -22,13 +22,32 @@ html{
 }
 
 
+.reviewTitle{
+    margin-top: 7%;
+    position: absolute;
+   }
+   
+
+.review-form{
+    border-style: groove;
+    margin-left: 20px;
+    padding: 2%;
+    margin-top: 18%;
+    width: 90%;
+    background-color: #ddd;
+}
+
+
 .reviewManager li{
     font-size: 20px;
     list-style-type: circle;
     font-weight: lighter;
     margin: 2%;
+    padding: 2%;
 
 }
+
+
 
  .reviewForm{
     /* background-color:rgb(218, 226, 146); */
@@ -40,6 +59,12 @@ html{
     margin-bottom: 30%;
   
 
+}
+
+textarea .reviewForm {
+    background-color: #4c96d7;
+    width: 40px;
+  
 }
 
 
@@ -58,7 +83,7 @@ div .reviewInfo {
     padding: 2%;
     background-color: #f2f2f2;
     border: #4c96d7 solid;
-    margin: 2%;
+    margin: -3%;
     position: relative;
 }
 
@@ -75,26 +100,7 @@ div .reviewInfo {
  margin-left: 10%;
 }
 
-/* .thumbnail-images{
-    display: grid;
-    position: absolute;
-    margin-top: 170%; */
-    /* margin-bottom: 30%; */
-    /* margin-bottom: 8%; */
-    /* padding: 5%;
-    list-style-type: none;
-    grid-template-columns: 1fr 1fr;   */
-    /* width: 10%; */
 
-/* }
-
-.thumbnail-images img{
-    margin-top: 4%;
-    max-width: 160px;
-    margin-left: 10px;
-    position: absolute; */
-    /* margin-bottom: 20%; */
-/* } */
 
 .thumbnail-images {
     display: grid;
@@ -109,9 +115,13 @@ div .reviewInfo {
 
 .thumbnail-images img{
     margin-left: 5%;
-    position: relative;
-    margin-top: 120%;
-    z-index: 2;
+    /* position: absolute; */
+    /* display: block; */
+    /* margin-top: 190%; */
+    /* z-index: 2; */
+
+    position: inherit;
+    padding: 5%;
     grid-gap: 5px;
     max-width: 120px;
     
@@ -141,6 +151,7 @@ width: 100%;
     /* margin-bottom: 15%; */
     /* position: relative; */
     /* background-color: #04AA6D; */
+    position: relative;
     
 }  
 
@@ -490,8 +501,8 @@ ul {
 footer{
     text-align: center;
     font-family:'Rajdhani', sans-serif ;
-    position: absolute;
-    margin-top: 60%;
+    position:-ms-page;
+    margin-top: 5%;
     border-top: #333 solid;
 }
 
@@ -1005,16 +1016,24 @@ a .carclass{
     border-style: groove;
     margin-left: 20px;
     padding: 2%;
-    margin-top: 10px;
+    margin-top: 20%;
     background-color: #ddd;
 }
 
 .reviewTitle{
- margin-top: 20%;
+ margin-top: 10%;
+ padding: 2%;
 }
 
 
 
+.reviewManager li{
+    list-style-type: circle;
+    font-weight: lighter;
+    margin-left: 5%;
+    /* padding: 2%; */
+
+}
 
 
 

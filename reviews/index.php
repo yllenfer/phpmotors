@@ -58,7 +58,18 @@ $action = filter_input(INPUT_GET, 'action');
         $buildMyReview = manageReview($myReviews);
         $vehicleDisplay = buildVehiclesInfo($vehicles);
         $reviews = getReviewInfo($invId);
-        $buildReviewsInfo = getVehicleReview($reviews);
+
+        if (count($reviews) <1){
+            $buildReviewsInfo =  notAReview(); 
+            header('location: /phpmotors/vehicles/?action=detail&invId=' . $invId); 
+            exit;
+        }
+        else {
+            $buildReviewsInfo = getVehicleReview($reviews);
+        }
+
+        break;
+        
         $myReviews = getReviewInfo($invId);
         $buildMyReview = manageReview($myReviews);
 
