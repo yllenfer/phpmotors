@@ -75,9 +75,9 @@ $action = filter_input(INPUT_GET, 'action');
           }
           $regOutcome = addReview($reviewText, $invId, $clientId);
           if($regOutcome ===1){ 
-            header('location: /phpmotors/vehicles/?action=detail&invId=' . $invId);
             $message = "<p class='noticeSuccess'>Your review has been added successfully</p>";
-            include '../view/vehicle-detail.php';
+            $_SESSION['message'] = $message;
+            header('location: /phpmotors/vehicles/?action=detail&invId=' . $invId);
             exit;
         }
         else {

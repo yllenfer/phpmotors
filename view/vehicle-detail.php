@@ -10,9 +10,9 @@
 
 <h1><?php if(isset($vehicles['invMake'])){ echo "$vehicles[invMake] $vehicles[invModel]";} ?></h1>
 
-<?php if(isset($message)){
+<?php //if(isset($message)){
  echo $message;
- }
+ //}
  ?>
 
 <?php
@@ -65,9 +65,16 @@ echo $thumbnailDisplay;
 <?php
 if(isset($_SESSION['loggedin'])){
   echo "<h3 class='reviewTitle'>Review " .  $vehicles['invMake'] . " ". $vehicles['invModel'].  "</h3>";
-  echo $reviewDisplay;
-  echo $buildReviewsForm;
 
+  echo $reviewDisplay;
+//   echo "<h3>Customer reviews </h3>";
+  //echo $buildReviewsForm;
+
+}
+
+else if($_SESSION['loggedin'] && $reviewDisplay === 0){
+    echo "Be the first one to leave a review";
+    // exit;
 }
 
 else{

@@ -78,6 +78,7 @@
             </div>
                       
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/footer.php'; ?>
+<?php unset($_SESSION['message']); ?>
 
 
 

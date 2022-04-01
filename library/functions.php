@@ -193,6 +193,7 @@ function buildReviews($invId, $clientId){
 //Function to display review
 function getVehicleReview($reviewText){
 $dv = '<br>';
+$dv = "<h3>Customer Reviews</h3>";
 $dv .= "<ul class='reviewForm'>";
  foreach($reviewText as $review){
 //  $dv .= '<li>';
@@ -210,10 +211,10 @@ $dv .= "<ul class='reviewForm'>";
 //Function to manage rwviews
 function manageReview($reviewText){
   $dv = "<ul class='reviewManager'>";
-  $dv .= '<h3>Manage your product review <h3>';
+  // $dv .= '<h3>Manage your product review <h3>';
   foreach($reviewText as $review){
     // $dv .= '';
-   $dv .= '<li>' . $review['invMake']. " ".$review['invModel']. " Reviewd on (". date("j F, Y",strtotime($review['reviewDate'])) . ")" . '<a href="/phpmotors/reviews?action=mod&reviewId=' . $review['reviewId'].'">Edit</a> <a href="/phpmotors/reviews?action=del&reviewId=' . $review['reviewId']. '">Delete</a></li>';
+   $dv .= '<li>' . $review['invMake']. " ".$review['invModel']. " Reviewd on (". date("j F, Y", strtotime($review['reviewDate'])) . ")" . '<a href="/phpmotors/reviews?action=mod&reviewId=' . $review['reviewId'].'">Edit</a> <a href="/phpmotors/reviews?action=del&reviewId=' . $review['reviewId']. '">Delete</a></li>';
   //  $dv .= '';
    
   }
