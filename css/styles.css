@@ -21,6 +21,28 @@ html{
     grid-template-rows:  1fr 1fr; */
 }
 
+.logintoReview{
+    margin-top: 15%;
+    font-size: 20px;
+    margin-left: 5%;
+    }
+
+.update-form{
+    background-color: #bec6ce;
+    width: auto;
+    margin-bottom: 60%;
+    margin-right: 5%;
+    margin-left: 5%;
+    position: relative;
+    text-align: center;
+    padding-bottom: 20%;
+}
+
+ .lastUpdated{
+    margin-right: 40%;
+    margin-top: 10%;
+}
+
 
 .reviewTitle{
     margin-top: 7%;
@@ -61,11 +83,11 @@ html{
 
 }
 
-textarea .reviewForm {
+/* textarea .reviewForm {
     background-color: #4c96d7;
     width: 40px;
   
-}
+} */
 
 
 .lastUpdated{
@@ -83,7 +105,7 @@ div .reviewInfo {
     padding: 2%;
     background-color: #f2f2f2;
     border: #4c96d7 solid;
-    margin: -3%;
+    margin: 3%;
     position: relative;
 }
 
@@ -104,26 +126,25 @@ div .reviewInfo {
 
 .thumbnail-images {
     display: grid;
+    text-decoration: none;
     grid-template-columns: 1fr 1fr 1fr;
-    position: absolute;
-    margin-top: 125%;
-    /* width: 70%; */
-    grid-gap: 2px;
+    grid-template-rows:  1fr 1fr;
+    /* position: absolute; */
+    /* z-index: 2; */
+    max-width: 10px;
+    grid-gap: 5px;
+    margin-left: 5%;
+    /* padding: 10%; */
+    /* margin-bottom: 2%; */
+    /* background-color: #417099; */
 
     
 }
 
 .thumbnail-images img{
-    margin-left: 5%;
-    /* position: absolute; */
-    /* display: block; */
-    /* margin-top: 190%; */
-    /* z-index: 2; */
-
-    position: inherit;
-    padding: 5%;
-    grid-gap: 5px;
-    max-width: 120px;
+  
+    width: 110px;
+   
     
     
     
@@ -979,6 +1000,7 @@ a .carclass{
     grid-gap: 20px;
     margin-top: 2%;
     max-width: 190px;
+    width: 200px;
     position: relative;
     padding: 30px;
     /* background-color: #04AA6D; */
@@ -1037,5 +1059,46 @@ a .carclass{
 
 
 
+.textareaupdate{
+    margin-left: 2%;
+    text-align: center;
+}
+
+
+.update-form{
+    background-color: #c6d0da;
+    
+}
+
+.update-form button{
+    /* background-color: #bec6ce; */
+    margin-right: 20%;
+}
+
+.update-form textarea{
+    margin-right: 10%;
+}
+
+.update-form label{
+    margin-right: 15%;
+}
+
+.update-form h4{
+    margin-right: 10%;
+}
+
+.lastUpdated{
+    margin-top: 10px;
+    margin-right: 40%;
+    margin-bottom: 2%;
+}
+
+
+
+.logintoReview{
+margin-top: 15%;
+font-size: 20px;
+margin-left: 5%;
+}
     }
     

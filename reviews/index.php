@@ -68,7 +68,7 @@ $action = filter_input(INPUT_GET, 'action');
             $buildReviewsInfo = getVehicleReview($reviews);
         }
 
-        break;
+        // break;
         
         $myReviews = getReviewInfo($invId);
         $buildMyReview = manageReview($myReviews);
