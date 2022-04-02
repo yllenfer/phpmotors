@@ -15,16 +15,14 @@
  
 </nav>
 <?php
-echo '<h4>Here I am</h4>' .$invInfo['invMake'];
+//echo '<h4>Here I am</h4>' .$invInfo['invMake'];
 ?>
 
 
-<h1><?php if(isset($invInfo['invMake']) && isset($invInfo['invModel'])){ 
-	echo "Modify $invInfo[invMake] $invInfo[invModel]";} 
-elseif(isset($invMake) && isset($invModel)) { 
-echo "Modify $invMake $invModel";
-echo $invInfo; }?>
+<h1><?php echo $reviewInfo['invMake'] . "Hello world" ?>
 </h1>
+
+<h1><?php if(isset($vehicles2['invMake'])){ echo "$vehicles2[invMake] $vehicles2[invModel]";} ?></h1>
 
 <?php
 
@@ -45,7 +43,7 @@ if (isset($message)) {
 <input type="hidden" name="action" value="reviewUpdate">
 <input type="hidden" name="reviewId" value="<?php if(isset($reviewInfo['reviewId'])){ echo $reviewInfo['reviewId'];} elseif(isset($reviewId)){ echo $reviewId; } ?>"><br>
 <button type="submit" value="reviewUpdate">Update</button><br>
-  <p class="lastUpdated">Last updated: </p><br>
+  <!-- <p class="lastUpdated">Last updated: </p><br> -->
 </form>
   
 

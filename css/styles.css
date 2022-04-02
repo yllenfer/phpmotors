@@ -106,8 +106,9 @@ div .reviewInfo {
     padding: 2%;
     background-color: #f2f2f2;
     border: #4c96d7 solid;
-    margin: 3%;
+    /* margin: -3%; */
     position: relative;
+    margin-top: 2px;
 }
 
 #image-display{
@@ -1042,6 +1043,7 @@ a .carclass{
 .reviewTitle{
  margin-top: 10%;
  padding: 2%;
+ margin-left: 5px;
 }
 
 
@@ -1088,6 +1090,21 @@ a .carclass{
 margin-top: 15%;
 font-size: 20px;
 margin-left: 5%;
+}
+
+
+ .customerReviews{
+    margin-top: -10%;
+    padding: auto;
+    margin-bottom: -40px;
+
+}
+
+
+div .reviewInfo{
+    margin-top: 12px;
+  
+
 }
     }
     

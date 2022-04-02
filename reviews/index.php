@@ -56,34 +56,15 @@ $action = filter_input(INPUT_GET, 'action');
         $thubmnails = getVehiclesByThubmnail($invId);
         $buildThubmnails = buildVehicleThumbnail($thubmnails);
         $buildReviewsForm = buildReviews($invId, $clientId, $clientFirstname, $clientLastname);
+        //$myReviews works with the review from the admin
         $myReviews = getReviewInfo($invId);
         $buildMyReview = manageReview($myReviews);
         $vehicleDisplay = buildVehiclesInfo($vehicles);
         $reviews = getReviewInfo($invId);
         $myReviews = getReviewInfo($invId);
         $buildMyReview = manageReview($myReviews);
-
         
-
-        if (!count($reviews)){
-            $message = "<p class='notice'>Be the first one to leave a review.</p>";
-            //  notAReview(); 
-            // var_dump($buildReviewsInfo);
-            // exit;
-            header('location: /phpmotors/vehicles/?action=detail&invId=' . $invId); 
-            exit;
-        }
-        else {
-            $buildReviewsInfo = getVehicleReview($reviews);
-        }
-
-        break;
-        
-        
-
-       
-            
-      
+     
       
           if(empty($reviewText)){
               $message = "<p class='notice'>Please provide information for all empty form fields.</p>";
@@ -91,8 +72,10 @@ $action = filter_input(INPUT_GET, 'action');
               exit;
   
           }
+
           $regOutcome = addReview($reviewText, $invId, $clientId);
           if($regOutcome ===1){ 
+            
             $message = "<p class='noticeSuccess'>Your review has been added successfully</p>";
             $_SESSION['message'] = $message;
             header('location: /phpmotors/vehicles/?action=detail&invId=' . $invId);

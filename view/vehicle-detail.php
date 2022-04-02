@@ -38,7 +38,27 @@ echo "<h4 class='logintoReview'>You must <a href='/phpmotors/accounts/index.php?
 
 
 
-<?php if(isset($buildReviewsInfo)){echo $buildReviewsInfo;} ?>
+<?//php if(isset($buildReviewsInfo)){echo "<h3 class='customerReviews'>Customer Reviews </h3>" . $buildReviewsInfo;} ?>
 
+<?php
+
+echo $review;
+?>
+
+
+<?php
+
+// if(($buildReviewsInfo)){
+//     $buildReviewsInfo;
+
+// }else {
+    
+// }
+
+
+?>
+
+
+<?php echo $message2; ?>
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/footer.php'; ?>
 <?php unset($_SESSION['message']); ?>  

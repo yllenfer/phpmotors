@@ -253,12 +253,24 @@ case 'deleteVehicle':
         // $formattedDate = date("j F Y", $reviewDate);
         //  echo $reviewDate;
         // exit;
+        $buildReviewsInfo = getVehicleReview($reviews);
+        $reviews = getReviewInfo($invId);
+
+        if(count($reviews) > 1){
+            $review = "<h3 class='customerReviews'>Customer Reviews </h3>";
+            $review .= $buildReviewsInfo;
+            
+
+        }else {
+            $review = "<h3>Be the first one to leave a review </h3>"; 
+        }
+
+        
+
+
         
         $buildReviewsInfo = getVehicleReview($reviews);
-        // if ($buildReviewsInfo === 1){
-        //     $message = "<p class='notice'>WAs added</p>";
-        //     header('location: /phpmotors/reviews/');
-        // }
+      
        
        $vehicles = getInvItemInfo($invId);
        $thumbnail = getVehiclesByThubmnail($invId);

@@ -17,8 +17,8 @@ if (isset($message)) {
 }
 ?>
 
+<h1><?php if(isset($vehicles['invMake'])){ echo "$vehicles[invMake] $vehicles[invModel]";} ?></h1>
 
-<h1><?php if(isset($invInfo['invMake'])){ echo "Delete $invInfo[invMake] $invInfo[invModel]";} ?></h1>
 
 
 <?php if (isset($message)) {echo $message;}?>

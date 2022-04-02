@@ -60,5 +60,5 @@ echo "<a class='usethis' href='/phpmotors/accounts/index.php?action=accountUpdat
 <!-- TODO: Things I need to work on:
 *The "Be the first to leave a review"
 *Success when the review is added.
-*Header of car when leaveing review
+*Header of car when leaving review
 *Title when leaveing review (page) -->
