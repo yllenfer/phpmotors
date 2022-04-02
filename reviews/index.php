@@ -50,17 +50,26 @@ $action = filter_input(INPUT_GET, 'action');
         $reviewDate = filter_input(INPUT_POST, 'reviewDate', FILTER_SANITIZE_STRING);
         $invId = (filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT));
         $clientId = (filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT));
+        $clientFirstname = (filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_STRING));
+        $clientLastname = (filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_STRING));
         $vehicles = getInvItemInfo($invId);
         $thubmnails = getVehiclesByThubmnail($invId);
         $buildThubmnails = buildVehicleThumbnail($thubmnails);
-        $buildReviewsForm = buildReviews($invId, $clientId);
+        $buildReviewsForm = buildReviews($invId, $clientId, $clientFirstname, $clientLastname);
         $myReviews = getReviewInfo($invId);
         $buildMyReview = manageReview($myReviews);
         $vehicleDisplay = buildVehiclesInfo($vehicles);
         $reviews = getReviewInfo($invId);
+        $myReviews = getReviewInfo($invId);
+        $buildMyReview = manageReview($myReviews);
 
-        if (count($reviews) <1){
-            $buildReviewsInfo =  notAReview(); 
+        
+
+        if (!count($reviews)){
+            $message = "<p class='notice'>Be the first one to leave a review.</p>";
+            //  notAReview(); 
+            // var_dump($buildReviewsInfo);
+            // exit;
             header('location: /phpmotors/vehicles/?action=detail&invId=' . $invId); 
             exit;
         }
@@ -68,11 +77,9 @@ $action = filter_input(INPUT_GET, 'action');
             $buildReviewsInfo = getVehicleReview($reviews);
         }
 
-        // break;
+        break;
         
-        $myReviews = getReviewInfo($invId);
-        $buildMyReview = manageReview($myReviews);
-
+        
 
        
             

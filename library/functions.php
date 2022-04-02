@@ -170,14 +170,14 @@ function buildVehiclesSelect($vehicles) {
 
 
 //Function to crate form
-function buildReviews($invId, $clientId){
+function buildReviews($invId, $clientId, $clientFirstname, $clientLastname){
   $dv = '<br>';
   $dv .= '<form class="review-form" method="post" action="/phpmotors/reviews/index.php">';
   $dv .= '<label for="clientFirstname">Screen Name</label>';
   $dv .= '<br>';
   $dv .= '<input type="hidden" name="invId"' .'value="' . $invId . ' " >';
   $dv .= '<input type="hidden" name="clientId" value="'. $clientId . '">';
-  $dv .= '<input type="text" id="clientFirtname" name="clientFirstname" required="required">';
+  $dv .= '<input type="text" id="clientFirtname" name="clientFirstname" readonly value="' . substr($clientFirstname, 0, 1) .  $clientLastname . '">';
   $dv .= '<br>';
   $dv .= '<label for="reviewText">Screen Name</label>';
   $dv .= '<br>';
@@ -211,7 +211,7 @@ $dv .= "<ul class='reviewForm'>";
 //Function to manage rwviews
 function manageReview($reviewText){
   $dv = "<ul class='reviewManager'>";
-  // $dv .= '<h3>Manage your product review <h3>';
+  $dv .= '<h3>Manage your product review <h3>';
   foreach($reviewText as $review){
     // $dv .= '';
    $dv .= '<li>' . $review['invMake']. " ".$review['invModel']. " Reviewd on (". date("j F, Y", strtotime($review['reviewDate'])) . "): " . '<a href="/phpmotors/reviews?action=mod&reviewId=' . $review['reviewId'].'">Edit</a> <a href="/phpmotors/reviews?action=del&reviewId=' . $review['reviewId']. '">Delete</a></li>';
@@ -223,7 +223,7 @@ $dv .= '</ul>';
 }
 
 function notAReview(){
-  $dv = '<h3> be the firstone to leave a review </h3>';
+  $dv = '<h3> be the first one to leave a review </h3>';
   return $dv;
 
 }

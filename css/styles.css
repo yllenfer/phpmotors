@@ -21,14 +21,16 @@ html{
     grid-template-rows:  1fr 1fr; */
 }
 
+
+
 .logintoReview{
-    margin-top: 15%;
-    font-size: 20px;
-    margin-left: 5%;
-    }
+margin-top: 15%;
+font-size: 20px;
+margin-left: 5%;
+}
 
 .update-form{
-    background-color: #bec6ce;
+    /* background-color: #bec6ce; */
     width: auto;
     margin-bottom: 60%;
     margin-right: 5%;
@@ -94,9 +96,8 @@ html{
     position: relative;
     font-size: larger;
     font-weight: bolder;
-    /* margin: 5%; */
-    margin-top: -120px;
-    margin-left: 30%;
+    margin-top: 10px;
+    margin-left: 20%;
 }
 
 div .reviewInfo {
@@ -283,11 +284,7 @@ h6{
 }
 
 
-.deleteForm{
-    /* border-style: solid; */
-    margin-top: 2%;
-    margin-left: 30%;
-}
+
 
 .usethis {
     margin-left: 5%;
@@ -1065,10 +1062,7 @@ a .carclass{
 }
 
 
-.update-form{
-    background-color: #c6d0da;
-    
-}
+
 
 .update-form button{
     /* background-color: #bec6ce; */
@@ -1087,11 +1081,6 @@ a .carclass{
     margin-right: 10%;
 }
 
-.lastUpdated{
-    margin-top: 10px;
-    margin-right: 40%;
-    margin-bottom: 2%;
-}
 
 
 

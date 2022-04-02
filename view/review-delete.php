@@ -25,7 +25,7 @@ echo $message;
 <h4 class="usethis">Confirm Review Deletion. The delete is permanent</h4>
 
 <!-- Form Info -->
-<form class="deleteForm" method="post" action="/phpmotors/reviews/index.php"><br>
+<form class="update-form" method="post" action="/phpmotors/reviews/index.php"><br>
 <label for="reviewText">Reviews</label><br>
 <textarea id="reviewText" name="reviewText" readonly rows="2" cols="20" required oninvalid="this.setCustomValidity('Please enter a review')" oninput="this.setCustomValidity('')" ><?php if(isset($reviewInfo['reviewText'])) {echo $reviewInfo['reviewText'];}  ?></textarea><br>
 <br><input type="hidden" name="action" value="deleteReview">

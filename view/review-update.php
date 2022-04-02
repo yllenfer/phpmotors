@@ -1,7 +1,7 @@
-<title><?//php if(isset($reviewInfo['invMake']) && isset($reviewInfo['invModel'])){ 
+<title><?php //if(isset($reviewInfo['invMake']) && isset($reviewInfo['invModel'])){ 
 	 //echo "Modify $reviewInfo[invMake] $reviewInfo[invModel]";} 
 	//elseif(isset($invMake) && isset($invModel)) { 
-	//	echo "Modify $invMake $invModel"; }?> | PHP Motors</title>
+//echo "Modify $invMake $invModel"; }?> | PHP Motors</title>
 
 
 
@@ -12,17 +12,23 @@
 <nav>
 <?php 
  echo $navList?> 
+ 
 </nav>
+<?php
+echo '<h4>Here I am</h4>' .$invInfo['invMake'];
+?>
 
 
-
-<h1><?//php if(isset($invInfo['invMake']) && isset($invInfo['invModel'])){ 
-	//echo "Modify $invInfo[invMake] $invInfo[invModel]";} 
-//elseif(isset($invMake) && isset($invModel)) { 
-	//echo "Modify $invMake $invModel"; }?></h1>
-
+<h1><?php if(isset($invInfo['invMake']) && isset($invInfo['invModel'])){ 
+	echo "Modify $invInfo[invMake] $invInfo[invModel]";} 
+elseif(isset($invMake) && isset($invModel)) { 
+echo "Modify $invMake $invModel";
+echo $invInfo; }?>
+</h1>
 
 <?php
+
+
 if (isset($message)) {
  echo $message;
 }
