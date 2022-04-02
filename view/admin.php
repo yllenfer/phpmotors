@@ -13,7 +13,6 @@ if (isset($_SESSION['loggedin'])) {
  echo $_SESSION['loggedin'];
  }
 
-//TODO: This message stays here forever and that should not be the case, every messae stays there for ever
  if (isset($_SESSION['message'])) {
     echo $_SESSION['message'];
     }
@@ -48,17 +47,18 @@ echo "<a class='usethis' href='/phpmotors/accounts/index.php?action=accountUpdat
 
 ?>
 
-<?php
-
-if(isset($_SESSION['loggedin']) and ($_SESSION['clientData']['clientLevel'])== 3){
-    echo "<h3>Inventory management</h3>";
-    echo "<p class='usethis'>Use this link to manage the inventory<p>";
-    echo "<a class='usethis' href='/phpmotors/vehicles/index.php'>Vehicle management</a>";
-}
-
-
-?>
+<?php if(isset($_SESSION['loggedin']) and ($_SESSION['clientData']['clientLevel'])== 3){
+        echo "<h3>Inventory management</h3>";
+        echo "<p class='usethis'>Use this link to manage the inventory<p>";
+        echo "<a class='usethis' href='/phpmotors/vehicles/index.php'>Vehicle management</a>";}?>
 
 
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/footer.php'; ?> 
 <?php unset($_SESSION['message']); ?>
+
+
+<!-- TODO: Things I need to work on:
+*The "Be the first to leave a review"
+*Success when the review is added.
+*Header of car when leaveing review
+*Title when leaveing review (page) -->

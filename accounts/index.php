@@ -112,7 +112,6 @@ $action = filter_input(INPUT_GET, 'action');
       $clientLastname = trim(filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_STRING));
       $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
       $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
-      //TODO: client email is not sticky when registering
       $clientEmail = checkEmail($clientEmail);
       $checkPassword = checkPassword($clientPassword);
 
@@ -219,7 +218,7 @@ $action = filter_input(INPUT_GET, 'action');
    $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
   $passwordCheck = checkPassword($clientPassword);
   $name = $_SESSION['clientData']['clientFirstname'];
-  
+
    
   
    

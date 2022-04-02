@@ -61,7 +61,6 @@ $action = filter_input(INPUT_GET, 'action');
         if($regOutcome ===1){
             $message = "<p class='noticeSuccess'>Your $invMake $invModel has been added successfully</p>";
             include '../view/add-vehicle.php';
-            //TODO: Need to check how to clear the add vehicle form after a car as been added
             '<script>$(".formAddVehicle")[0].reset();</script>'; 
             exit;
         }
@@ -263,7 +262,7 @@ case 'deleteVehicle':
        
        $vehicles = getInvItemInfo($invId);
        $thumbnail = getVehiclesByThubmnail($invId);
-       $reviewDisplay = buildReviews($invId, $clientId);
+       $reviewDisplay = buildReviews($invId, $clientId,  $_SESSION['clientData']['clientFirstname'], $_SESSION['clientData']['clientLastname']);
 
   
         if(!count($vehicles)){
@@ -296,7 +295,6 @@ case 'deleteVehicle':
 
 
          default:
-         //TODO: Come back here for the default detail view; 
         include '../view/vehicle-management.php';
        break;
 
