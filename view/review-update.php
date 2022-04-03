@@ -1,7 +1,4 @@
-<title><?php //if(isset($reviewInfo['invMake']) && isset($reviewInfo['invModel'])){ 
-	 //echo "Modify $reviewInfo[invMake] $reviewInfo[invModel]";} 
-	//elseif(isset($invMake) && isset($invModel)) { 
-//echo "Modify $invMake $invModel"; }?> | PHP Motors</title>
+<title><?php if(isset($titles['invMake'])){ echo "$titles[invMake] $titles[invModel]";}?> | PHP Motors</title>
 
 
 
@@ -14,15 +11,10 @@
  echo $navList?> 
  
 </nav>
-<?php
-//echo '<h4>Here I am</h4>' .$invInfo['invMake'];
-?>
 
 
-<h1><?php echo $reviewInfo['invMake'] . "Hello world" ?>
-</h1>
 
-<h1><?php if(isset($vehicles2['invMake'])){ echo "$vehicles2[invMake] $vehicles2[invModel]";} ?></h1>
+<h1>Update <?php if(isset($titles['invMake'])){ echo "$titles[invMake] $titles[invModel]";} ?></h1>
 
 <?php
 

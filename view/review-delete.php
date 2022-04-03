@@ -1,4 +1,4 @@
-<title><?php if(isset($invInfo['invMake'])){ echo "Delete $invInfo[invMake] $invInfo[invModel]";} ?> | PHP Motors</title>
+<title><?php if(isset($titles['invMake'])){ echo "Delete $titles[invMake] $titles[invModel]";} ?> | PHP Motors</title>
 
 
 
@@ -18,7 +18,7 @@ echo $message;
 ?>
 
 
-<h1><?php if(isset($invInfo['invMake'])){ echo "Delete $invInfo[invMake] $invInfo[invModel]";} ?></h1>
+<h1><?php if(isset($titles['invMake'])){ echo "Delete $titles[invMake] $titles[invModel]";} ?></h1>
 
 <?php if (isset($message)) {echo $message;}?>
 

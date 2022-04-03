@@ -68,7 +68,8 @@ $action = filter_input(INPUT_GET, 'action');
       
           if(empty($reviewText)){
               $message = "<p class='notice'>Please provide information for all empty form fields.</p>";
-              include '../view/vehicle-detail.php';
+              $_SESSION['message'] = $message;
+              header('location: /phpmotors/vehicles/?action=detail&invId=' . $invId);
               exit;
   
           }
@@ -105,10 +106,24 @@ case 'displayReview':
 
 
     case 'mod':
+
         $reviewId = filter_input(INPUT_GET, 'reviewId', FILTER_VALIDATE_INT);
         $reviewInfo = getReviewItemInfo($reviewId);
         $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
-        //$invInfo = getInvItemInfoReview($invId);
+
+        $invIdGet = $reviewInfo['invId'];
+        $titles = getReviewTitle($invIdGet);
+
+        // if(empty($reviewText)){
+        //     $message = "<p class='notice'>Please provide information for all empty form fields.</p>";
+        //     $_SESSION['message'] = $message;
+        //     header('location: /phpmotors/vehicles/?action=detail&invId=' . $titles['invId']);
+        //     exit;
+
+        // }
+        
+
+        
         if(count($reviewInfo)<1){
             $message = 'Sorry, no vehicle information could be found.';
            }
@@ -118,6 +133,11 @@ case 'displayReview':
     case 'del':
         $reviewId = filter_input(INPUT_GET, 'reviewId', FILTER_VALIDATE_INT);
         $reviewInfo = getReviewItemInfo($reviewId);
+
+        $invIdGet = $reviewInfo['invId'];
+        $titles = getReviewTitle($invIdGet);
+
+
         if (count($reviewInfo) < 1) {
                 $message = 'Sorry, no vehicle information could be found.';
             }
@@ -126,6 +146,7 @@ case 'displayReview':
             break;
 
     case 'deleteReview':
+        
         $reviewId = filter_input(INPUT_POST, 'reviewId', FILTER_SANITIZE_NUMBER_INT);
         
         $deleteResult = deleteReview($reviewId);

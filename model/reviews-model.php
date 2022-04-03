@@ -86,7 +86,17 @@ function updateReview($reviewId, $reviewText) {
 
     
 
-
+    function getReviewTitle($invIdGet){
+        $db = phpmotorsConnect();
+        $sql = 'SELECT * FROM inventory WHERE invId = :invId';
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':invId', $invIdGet, PDO::PARAM_INT);
+        $stmt->execute();
+        $titles = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
+        return $titles;
+       }
+    
  
     
     

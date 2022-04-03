@@ -1,6 +1,6 @@
-
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/header.php'; ?>
 <title><?php echo $_SESSION['clientData']['clientFirstname']; ?> Information | PHP Motors, Inc.</title>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/header.php'; ?>
+
 
 
 <nav>
