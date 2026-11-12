@@ -81,8 +81,14 @@ function uploadFile($name) {
     global $image_dir, $image_dir_path;
     if (isset($_FILES[$name])) {
      // Gets the actual file name
-     $filename = $_FILES[$name]['name'];
+     $filename = basename($_FILES[$name]['name']);
      if (empty($filename)) {
+      return;
+     }
+     // Only accept real image files
+     $extension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+     if (!in_array($extension, ['jpg', 'jpeg', 'png', 'gif'], true)
+         || @getimagesize($_FILES[$name]['tmp_name']) === false) {
       return;
      }
     // Get the file from the temp folder on the server

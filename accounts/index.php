@@ -30,6 +30,11 @@ $action = filter_input(INPUT_GET, 'action');
   $action = filter_input(INPUT_POST, 'action');
  }
 
+ // Only logging in, registering and logging out work without an account
+ if (!in_array($action, ['login', 'register', 'logout'], true)) {
+  requireLogin();
+ }
+
  switch ($action) {
 
    case 'admin':
@@ -79,16 +84,10 @@ $action = filter_input(INPUT_GET, 'action');
     exit;
   }
  
- if($_SESSION['loggedin'] = TRUE){
-  
- }
-  
+ $_SESSION['loggedin'] = TRUE;
 
- if($_SESSION['loggedin'] = False){
-  include '../index.php';
-}
-
-  array_pop($clientData);
+  // Never keep the password hash in the session
+  unset($clientData['clientPassword']);
   // Store the array into the session
   $_SESSION['clientData'] = $clientData;
   // Send them to the admin view

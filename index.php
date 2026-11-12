@@ -37,7 +37,7 @@ $action = filter_input(INPUT_POST, 'action');
 
 
  switch ($action){
-  case 'template';
+  case 'template':
   include 'view/template.php';
    break;
   

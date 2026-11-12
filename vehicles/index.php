@@ -35,6 +35,12 @@ $action = filter_input(INPUT_GET, 'action');
   $action = filter_input(INPUT_POST, 'action');
  }
 
+ // Everything except browsing the inventory is admin-only
+ $publicVehicleActions = ['classification', 'detail'];
+ if (!in_array($action, $publicVehicleActions, true)) {
+  requireAdmin();
+ }
+
  switch ($action) {
   
 
@@ -163,7 +169,7 @@ $action = filter_input(INPUT_GET, 'action');
     case 'mod':
         $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
         $invInfo = getInvItemInfo($invId);
-        if(count($invInfo)<1){
+        if (empty($invInfo)){
             $message = 'Sorry, no vehicle information could be found.';
            }
         include '../view/vehicle-update.php';
@@ -172,7 +178,7 @@ $action = filter_input(INPUT_GET, 'action');
     case 'del':
         $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
         $invInfo = getInvItemInfo($invId);
-        if (count($invInfo) < 1) {
+        if (empty($invInfo)) {
                 $message = 'Sorry, no vehicle information could be found.';
             }
             include '../view/vehicle-delete.php';
@@ -182,7 +188,7 @@ $action = filter_input(INPUT_GET, 'action');
     case 'det':
         $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
         $invInfo = getInventoryByInvId($invId);
-        if(count($invInfo)<1){
+        if (empty($invInfo)){
             $message = 'Sorry, no vehicle information could be found.';
            }
         // echo $invId;
@@ -215,7 +221,7 @@ case 'deleteVehicle':
         $classificationName = filter_input(INPUT_GET, 'classificationName', FILTER_SANITIZE_STRING);
         $vehicles = getVehiclesByClassification($classificationName);
 
-        if(!count($vehicles)){
+        if (empty($vehicles)){
             $message = "<p class='notice'>Sorry, no $classificationName vehicles could be found.</p>";
           } else {
             $vehicleDisplay = buildVehiclesDisplay($vehicles);
@@ -256,7 +262,7 @@ case 'deleteVehicle':
         $buildReviewsInfo = getVehicleReview($reviews);
         $reviews = getReviewInfo($invId);
 
-        if(count($reviews) > 1){
+        if (!empty($reviews)){
             $review = "<h3 class='customerReviews'>Customer Reviews </h3>";
             $review .= $buildReviewsInfo;
             
@@ -277,8 +283,8 @@ case 'deleteVehicle':
        $reviewDisplay = buildReviews($invId, $clientId,  $_SESSION['clientData']['clientFirstname'], $_SESSION['clientData']['clientLastname']);
 
   
-        if(!count($vehicles)){
-            $message = "<p class='notice'>Sorry, no $vehicles could be found.</p>";
+        if (empty($vehicles)){
+            $message = "<p class='notice'>Sorry, no vehicle could be found.</p>";
           } else {
             $vehicleDisplay = buildVehiclesInfo($vehicles);
             $thumbnailDisplay = buildVehicleThumbnail($thumbnail);

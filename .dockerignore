@@ -1,0 +1,9 @@
+.git
+.history
+.vscode
+.env
+**/.DS_Store
+docker-compose.yml
+sql
+Dockerfile
+.dockerignore

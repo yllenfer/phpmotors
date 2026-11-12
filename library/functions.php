@@ -1,5 +1,36 @@
 <?php
 
+/* * ********************************
+*  Access control helpers
+* ********************************* */
+
+// True when a client is logged in
+function isLoggedIn() {
+  return !empty($_SESSION['loggedin']) && isset($_SESSION['clientData']['clientId']);
+}
+
+// True when the logged-in client is an employee/admin (clientLevel 2 or 3)
+function isAdmin() {
+  return isLoggedIn() && (int)$_SESSION['clientData']['clientLevel'] > 1;
+}
+
+// Send visitors who are not logged in to the login page
+function requireLogin() {
+  if (!isLoggedIn()) {
+    header('Location: /phpmotors/accounts/?action=login');
+    exit;
+  }
+}
+
+// Only admins may continue; everyone else goes back to the home page
+function requireAdmin() {
+  if (!isAdmin()) {
+    header('Location: /phpmotors/');
+    exit;
+  }
+}
+
+
 function checkEmail($clientEmail){
     $valEmail = filter_var($clientEmail, FILTER_VALIDATE_EMAIL);
     return $valEmail;

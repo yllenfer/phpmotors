@@ -39,6 +39,21 @@ $action = filter_input(INPUT_GET, 'action');
   $action = filter_input(INPUT_POST, 'action');
  }
 
+ // All review actions need a logged-in client
+ requireLogin();
+
+ // Editing or deleting is only allowed on the client's own reviews
+ if (in_array($action, ['mod', 'del', 'deleteReview', 'reviewUpdate'], true)) {
+  $ownReviewId = filter_input(INPUT_GET, 'reviewId', FILTER_VALIDATE_INT)
+   ?: filter_input(INPUT_POST, 'reviewId', FILTER_VALIDATE_INT);
+  $ownReview = $ownReviewId ? getReviewItemInfo($ownReviewId) : false;
+  if (!$ownReview || (int)$ownReview['clientId'] !== (int)$_SESSION['clientData']['clientId']) {
+   $_SESSION['message'] = "<p class='notice'>You can only change your own reviews.</p>";
+   header('location: /phpmotors/accounts/');
+   exit;
+  }
+ }
+
  switch ($action) {
 
 
@@ -49,7 +64,8 @@ $action = filter_input(INPUT_GET, 'action');
         $reviewText = filter_input(INPUT_POST, 'reviewText', FILTER_SANITIZE_STRING);
         $reviewDate = filter_input(INPUT_POST, 'reviewDate', FILTER_SANITIZE_STRING);
         $invId = (filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT));
-        $clientId = (filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT));
+        // Always post the review as the logged-in client, never a client id from the form
+        $clientId = $_SESSION['clientData']['clientId'];
         $clientFirstname = (filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_STRING));
         $clientLastname = (filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_STRING));
         $vehicles = getInvItemInfo($invId);
@@ -124,7 +140,7 @@ case 'displayReview':
         
 
         
-        if(count($reviewInfo)<1){
+        if (empty($reviewInfo)){
             $message = 'Sorry, no vehicle information could be found.';
            }
         include '../view/review-update.php';
@@ -138,7 +154,7 @@ case 'displayReview':
         $titles = getReviewTitle($invIdGet);
 
 
-        if (count($reviewInfo) < 1) {
+        if (empty($reviewInfo)) {
                 $message = 'Sorry, no vehicle information could be found.';
             }
             include '../view/review-delete.php';

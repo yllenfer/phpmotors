@@ -8,6 +8,9 @@ require_once '../model/vehicle-model.php';
 require_once '../model/uploads-model.php';
 require_once '../library/functions.php';
 
+// Image management is for admins only
+requireAdmin();
+
 
 // Get the array of classifications
 $classifications = getClassifications();
@@ -50,6 +53,11 @@ switch ($action) {
         } else {
         // Upload the image, store the returned path to the file
         $imgPath = uploadFile('file1');
+        if (empty($imgPath)) {
+            $_SESSION['message'] = '<p class="notice">Only JPG, PNG or GIF images can be uploaded.</p>';
+            header('location: .');
+            exit;
+        }
             
         // Insert the image information to the database, get the result
         $result = storeImages($imgPath, $invId, $imgName, $imgPrimary);
@@ -82,7 +90,7 @@ switch ($action) {
             $imgId = filter_input(INPUT_GET, 'imgId', FILTER_VALIDATE_INT);
                 
             // Build the full path to the image to be deleted
-            $target = $image_dir_path . '/' . $filename;
+            $target = $image_dir_path . '/' . basename($filename);
                 
             // Check that the file exists in that location
             if (file_exists($target)) {
@@ -118,7 +126,7 @@ switch ($action) {
 $imageArray = getImages();
       
 // Build the image information into HTML for display
-if (count($imageArray)) {
+if (!empty($imageArray)) {
  $imageDisplay = buildImageDisplay($imageArray);
 } else {
  $imageDisplay = '<p class="notice">Sorry, no images could be found.</p>';

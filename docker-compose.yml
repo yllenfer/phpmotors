@@ -1,0 +1,34 @@
+# Local development: docker compose up --build, then open http://localhost:8080
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    environment:
+      DB_HOST: mysql
+      DB_NAME: phpmotors
+      DB_USER: iClient
+      DB_PASSWORD: ${DB_PASSWORD:-change-me-locally}
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  # The service is named "mysql" to match the original course setup.
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: phpmotors
+      MYSQL_USER: iClient
+      MYSQL_PASSWORD: ${DB_PASSWORD:-change-me-locally}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root-change-me}
+    volumes:
+      - db-data:/var/lib/mysql
+      # Loads the tables and sample data the first time the volume is created
+      - ./sql/phpmotors.sql:/docker-entrypoint-initdb.d/01-phpmotors.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      retries: 20
+
+volumes:
+  db-data:
