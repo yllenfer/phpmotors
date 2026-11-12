@@ -64,12 +64,9 @@ Open <http://localhost:8080>. The first start creates the database and loads
    | `DB_USER`     | `${{MySQL.MYSQLUSER}}`       |
    | `DB_PASSWORD` | `${{MySQL.MYSQLPASSWORD}}`   |
 
-4. **Load the data.** On the MySQL service, open *Connect* and copy the
-   public connection details. Then from this folder run:
-
-   ```bash
-   mysql -h <public host> -P <public port> -u root -p railway < sql/phpmotors.sql
-   ```
+4. **Data loads by itself.** On start, the app checks the database. If it's
+   empty, the app loads the sample data from `sql/phpmotors.sql` over
+   Railway's private network. A database that already has data is never touched.
 
 5. **Get a URL.** Web service → *Settings → Networking → Generate Domain*.
    Open `https://<your-domain>/phpmotors/`.

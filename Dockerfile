@@ -11,6 +11,7 @@ RUN apt-get update \
 COPY docker/php.ini /usr/local/etc/php/conf.d/phpmotors.ini
 COPY docker/apache-phpmotors.conf /etc/apache2/conf-enabled/phpmotors.conf
 COPY docker/entrypoint.sh /usr/local/bin/phpmotors-entrypoint
+COPY docker/seed.php sql/phpmotors.sql /opt/phpmotors/
 RUN chmod +x /usr/local/bin/phpmotors-entrypoint
 
 # The app hard-codes /phpmotors/ in its links and includes, so it lives in

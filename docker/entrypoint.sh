@@ -4,4 +4,7 @@ set -e
 PORT="${PORT:-80}"
 sed -ri "s/^Listen [0-9]+/Listen ${PORT}/" /etc/apache2/ports.conf
 sed -ri "s/<VirtualHost \*:[0-9]+>/<VirtualHost *:${PORT}>/" /etc/apache2/sites-available/000-default.conf
+# Load the sample data the first time the app meets an empty database
+php /opt/phpmotors/seed.php || true
+
 exec docker-php-entrypoint "$@"
