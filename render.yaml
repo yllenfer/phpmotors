@@ -1,0 +1,8 @@
+# Render Blueprint: New > Blueprint in the Render dashboard, pick this repo.
+services:
+  - type: web
+    name: phpmotors
+    runtime: docker
+    dockerfilePath: ./Dockerfile.render
+    plan: free
+    healthCheckPath: /phpmotors/

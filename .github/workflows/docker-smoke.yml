@@ -1,0 +1,22 @@
+name: Docker smoke test
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build image
+        run: docker build -f Dockerfile.render -t app .
+      - name: Run and check the app responds
+        run: |
+          docker run -d --name app -e PORT=8080 -p 8080:8080 app
+          for i in $(seq 1 60); do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "http://localhost:8080/phpmotors/" || true)
+            echo "attempt $i: $code"
+            if [ "$code" = "200" ]; then exit 0; fi
+            sleep 3
+          done
+          docker logs app
+          exit 1
